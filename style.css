@@ -546,6 +546,12 @@ body {
         height: 50px;
         font-size: 24px;
     }
+    .social-links{
+        
+        margin-bottom: 10px;
+        
+    }
+    
 
     .footer {
         font-size: 14px;
@@ -577,4 +583,5 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
