@@ -126,7 +126,8 @@ body {
 
 .name {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: xx-large;
+    font-size: 130px;
+    margin-top: -40px;
     font-weight: bold;
     letter-spacing: -3px;
     position: relative;
@@ -415,7 +416,7 @@ body {
     margin: 20px 0;
     margin-bottom: -15px;
     padding: 10px;
-    width: 50%;
+    width: 70%;
     background: linear-gradient(90deg, #00cccc54 0%, #ff99001f 50%, #00cccc54 100%);
     border-radius: 5px;
     box-shadow: inset 0 0 20px rgba(0, 204, 204, 0.2);
@@ -486,6 +487,8 @@ body {
 
     .name {
         font-size: 36px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .avatar {
@@ -568,6 +571,4 @@ body {
 
 .social-link:hover i {
     animation: spin 0.5s linear;
-
 }
-
