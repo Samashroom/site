@@ -484,7 +484,11 @@ body {
         border-width: 1px;
         margin: 10px auto;
     }
-
+    .pronounce-hint{
+    bottom: -100%;    
+    transform: translateX(-50%) translateY(10px);
+    }
+    
     .name {
         font-size: 36px;
         margin-top: 0;
@@ -573,3 +577,4 @@ body {
     animation: spin 0.5s linear;
 
 }
+
