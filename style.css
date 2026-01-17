@@ -511,7 +511,9 @@ body {
         margin-right: 0;
         margin-bottom: 15px;
     }
-
+    .zvzd{
+        width: 50px;
+    }
     .social-links {
         gap: 10px;
         flex-wrap: wrap;
@@ -583,6 +585,7 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
 
