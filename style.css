@@ -490,7 +490,7 @@ body {
     }
     
     .name {
-        font-size: 36px;
+        font-size: 40px;
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -583,5 +583,6 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
