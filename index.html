@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самашрум</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <a href="close.html">
+            <div class="close">
+                <i class="fa-solid fa-x"></i>
+            </div>
+
+        </a>
+        <div class="back" id="backButton">
+            <i class="fa-solid fa-arrow-left"></i>
+        </div>
+
+
+        <div class="header">
+            <!-- Замените URL на свою реальную фотографию -->
+
+            <h1 class="name" data-text="САМАШРУМ">САМАШРУМ</h1>
+            <!-- Ваш существующий абзац теперь в обёртке -->
+            <span class="hint-wrapper">
+                <p class="pronounce">any pronounce</p>
+                <!-- Окошко-справка -->
+                <div class="pronounce-hint">
+                    <div class="hint-content">
+                        Я принимаю любые местоимения
+                    </div>
+                    <!-- Декоративный треугольник-указатель (опционально) -->
+                    <div class="hint-arrow"></div>
+                </div>
+            </span>
+            <div class="description">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img usemap="#clown-map" id="clown-image" src="assets/avatar.jpg" alt="Аватар" class="avatar">
+                    <map name="clown-map">
+                        <!-- Область для носа (координаты: left, top, right, bottom) -->
+                        <area shape="circle" coords="153,145,10" alt="Нос клоуна" data-sound="nose-sound"
+                            style="cursor: pointer; outline: none;">
+                    </map>
+                    <audio id="nose-sound" preload="auto">
+                        <source src="assets/clown.mp3" type="audio/mpeg">
+                        <source src="assets/clown.ogg" type="audio/ogg">
+                    </audio>
+
+                    <p>* Самашрум - автор и исполнитель, поднимающий в своём творчестве неожиданные, порой
+                        пугающие темы, не боящийся экспериментировать и идти на риск, к тому же — умелый копирайтер,
+                        обладающий
+                        недюжинной скромностью
+                        <br><a href="404.html">Подробнее...
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="links">
+            <a href="https://band.link/samashroom" class="link">
+                <div class="link-icon">
+                    <i class="fa-solid fa-headphones"></i>
+                </div>
+                Музыка
+            </a>
+            <a href="404.html" class="link">
+                <div class="link-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                Проекты
+            </a>
+            <a href="support.html" class="link">
+                <div class="link-icon">
+                    <i class="fa-solid fa-coins"></i>
+                </div>
+                Поддержать
+            </a>
+        </div>
+        <div class="box">
+            <img src="assets/zvzd.gif" class="zvzd">
+
+            <p style="font-size:xx-large;">Соцсети:</p>
+
+            <img src="assets/zvzd.gif" class="zvzd">
+
+        </div>
+
+        <div class="linkbox">
+            <div class="links">
+                <a href="https://www.youtube.com/@Samashroom" class="link" data-color="green">
+                    <div class="link-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    Ютуб
+                </a>
+                <a href="https://t.me/samashroomtg" target="_blank" class="link" data-color="green">
+                    <div class="link-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    Telegram
+                </a>
+                <a href="https://boosty.to/samashroom" class="link" data-color="green">
+                    <div class="link-icon">
+                        B
+                    </div>
+                    Boosty
+                </a>
+            </div>
+            <div class="links">
+                <a href="https://www.tiktok.com/@samashroom?_r=1&_t=ZT-92zGIWVc9Zm" class="link" data-color="green">
+                    <div class="link-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    Tiktok
+                </a>
+
+                <a href="https://www.twitch.tv/samashroom" class="link" data-color="green">
+                    <div class="link-icon">
+                        <i class="fab fa-twitch"></i>
+                    </div>
+                    Twitch
+                </a>
+
+                <div class="link" data-color="green">
+                    <div class="link-icon">
+                        <i class="fab fa-vk"></i>
+                    </div>
+                    Вконтакте
+                </div>
+
+            </div>
+
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center;" >
+            
+            <div class="social-links" style="font-size: xx-large; color: rgb(12, 46, 75); align-items: center;">
+                <p >Связь:</p>
+                <!-- Соцсети для быстрой связи -->
+                <a href="mailto:nonbinarydandy@gmail.com" target="_blank" class="social-link" rel="noopener noreferrer"
+                    title="Если не открывается почтовый клиент, скопируйте адрес: nonbinarydandy@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://t.me/samashroom_bot" target="_blank" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="easter-egg.js"></script>
+
+
+</body>
+<script>
+    document.querySelectorAll('.hint-wrapper').forEach(wrapper => {
+        wrapper.setAttribute('tabindex', '0'); // Делаем элемент фокусируемым
+    });
+</script>
+
+</html>

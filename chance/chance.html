@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chance v1.0</title>
+    <style>
+        body {
+            background-color: #c0c0c0;
+            font-family: "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAI0lEQVQIW2NkQAP3799nYGBgYGJiYmL4////fwYGhk8MDAwAQQQYFJ7Nw2IAAAAASUVORK5CYII=');
+            background-repeat: repeat;
+        }
+        
+        .marquee-container {
+            background-color: #000080;
+            color: #fff;
+            padding: 3px;
+            font-weight: bold;
+            border-top: 2px solid #dfdfdf;
+            border-left: 2px solid #dfdfdf;
+            border-right: 2px solid #808080;
+            border-bottom: 2px solid #808080;
+            margin-bottom: 15px;
+        }
+        
+        .marquee-text {
+            font-size: 14px;
+            font-family: "Courier New", monospace;
+        }
+        
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #808080 #dfdfdf #dfdfdf #808080;
+            padding: 2px;
+        }
+        
+        .title-bar {
+            background: linear-gradient(to right, #000080, #1084d0);
+            color: white;
+            padding: 4px 8px;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .window {
+            background-color: #c0c0c0;
+            margin: 15px;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            padding: 0;
+        }
+        
+        .window-title {
+            background-color: #808080;
+            color: white;
+            padding: 3px 8px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .window-content {
+            padding: 15px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin: 20px 0;
+            font-family: "Arial Black", "Arial Bold", sans-serif;
+        }
+        
+        .logo-main {
+            font-size: 36px;
+            color: #000080;
+            text-shadow: 2px 2px 0px #c0c0c0;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-sub {
+            font-size: 14px;
+            color: #800000;
+            font-style: italic;
+        }
+        
+        .login-form {
+            margin: 20px auto;
+            width: 400px;
+        }
+        
+        .form-row {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-label {
+            width: 120px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .form-input {
+            width: 250px;
+            padding: 5px;
+            border: 2px solid;
+            border-color: #808080 #dfdfdf #dfdfdf #808080;
+            background-color: #fff;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            background-color: #ffffcc;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .button {
+            padding: 8px 20px;
+            background-color: #c0c0c0;
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: "Tahoma", sans-serif;
+        }
+        
+        .button:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .button:active {
+            border-color: #808080 #dfdfdf #dfdfdf #808080;
+            padding: 9px 19px 7px 21px;
+        }
+        
+        .error-window {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            z-index: 100;
+            border: 2px solid;
+            border-color: #808080 #dfdfdf #dfdfdf #808080;
+        }
+        
+        .error-title {
+            background-color: #000080;
+            color: white;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .error-content {
+            background-color: #c0c0c0;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .error-icon {
+            font-size: 40px;
+            color: #ff0000;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 11px;
+            color: #808080;
+            border-top: 1px dotted #808080;
+            padding-top: 10px;
+        }
+        
+        .pixel-border {
+            border: 2px solid;
+            border-color: #dfdfdf #808080 #808080 #dfdfdf;
+            margin: 10px 0;
+        }
+        
+        .status-bar {
+            background-color: #c0c0c0;
+            border-top: 2px solid #808080;
+            padding: 3px 8px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .counter {
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            background-color: #000;
+            color: #0f0;
+            padding: 2px 5px;
+            display: inline-block;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .construction {
+            background-color: #ffff00;
+            color: #000;
+            padding: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0;
+            border: 1px dashed #ff0000;
+        }
+        
+        .hit-counter {
+            background-color: #000;
+            color: #0f0;
+            font-family: "Courier New", monospace;
+            padding: 2px 5px;
+            border: 1px solid #0f0;
+            display: inline-block;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <marquee class="marquee-text" behavior="scroll" direction="left" scrollamount="3">
+            ★ ДОБРО ПОЖАЛОВАТЬ НА ОФИЦИАЛЬНЫЙ ПОРТАЛ "CHANCE CORP" ★ ДЛЯ ВХОДА В СИСТЕМУ ВВЕДИТЕ ЛОГИН И ПАРОЛЬ ★ СИСТЕМА ЗАЩИЩЕНА ★
+        </marquee>
+    </div>
+    
+    <div class="container">
+        <div class="title-bar">
+            <span>Вход в систему v1.0</span>
+            <span>© ChanceTech</span>
+        </div>
+        
+        <div class="construction">
+            ⚠ САЙТ В СТАДИИ РАЗРАБОТКИ ⚠ ТОЛЬКО ДЛЯ РАБОТНИКОВ ⚠
+        </div>
+        
+        <div class="window">
+            <div class="window-title">Информация о системе</div>
+            <div class="window-content">
+                <div class="logo">
+                    <div class="logo-main">CHANCE-tem</div>
+                    <div class="logo-sub">Единый портал шансовца</div>
+                </div>
+                
+                <div class="pixel-border"></div>
+                
+                <div style="background-color: #e0e0e0; padding: 10px; border: 1px dashed #808080; margin: 15px 0; font-size: 13px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <div style="width: 20px; height: 20px; background-color: #000080; margin-right: 10px;"></div>
+                        <div><strong>ВНИМАНИЕ:</strong> Для доступа к корпоративным данным требуется авторизация.</div>
+                    </div>
+                    <div style="margin-left: 30px; font-size: 12px;">
+                        Система работает в тестовом режиме. При возникновении ошибок обратитесь к системному администратору.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="window">
+            <div class="window-title">Форма авторизации</div>
+            <div class="window-content">
+                <form class="login-form" id="loginForm">
+                    <div class="form-row">
+                        <div class="form-label">Логин:</div>
+                        <input type="text" class="form-input" id="username" placeholder="Введите имя пользователя" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-label">Пароль:</div>
+                        <input type="password" class="form-input" id="password" placeholder="Введите пароль" required>
+                    </div>
+                    
+                    <div class="button-container">
+                        <button type="submit" class="button">
+                            <span class="blink">▶</span> ВОЙТИ В СИСТЕМУ
+                        </button>
+                    </div>
+                    
+                    <div style="text-align: center; font-size: 12px; color: #808080; margin-top: 10px;">
+                        <input type="checkbox" id="remember" checked> Запомнить меня на этом компьютере
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="status-bar">
+            <div>Система: <span id="statusText">Готова к авторизации</span></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div>© ChanceTech. Все права защищены.</div>
+        <div>Версия системы: 1.0.5b (Beta)</div>
+        <div>Браузер: <span id="browserInfo">ChanceBrows 5.0</span></div>
+        <div style="margin-top: 5px;">
+        </div>
+    </div>
+    
+    <div class="error-window" id="errorWindow">
+        <div class="error-title">
+            <span>ОШИБКА СИСТЕМЫ</span>
+            <span id="closeError" style="cursor: pointer;">✖</span>
+        </div>
+        <div class="error-content">
+            <div class="error-icon">☠</div>
+            <div style="font-weight: bold; margin-bottom: 10px;" id="errorTitle">Ошибка авторизации</div>
+            <div style="margin-bottom: 20px;" id="errorMessage">
+                Неверное имя пользователя или пароль.<br>
+                Пожалуйста, проверьте данные и попробуйте снова.
+            </div>
+            <button class="button" id="errorOkButton" style="padding: 5px 15px;">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Устанавливаем текущую дату в стиле 2003 года
+        const currentDate = document.getElementById('currentDate');
+        const now = new Date();
+        const formattedDate = `${now.getDate().toString().padStart(2, '0')}.${(now.getMonth()+1).toString().padStart(2, '0')}.2003`;
+        currentDate.textContent = formattedDate;
+        
+        // Определяем разрешение экрана
+        const screenRes = document.getElementById('screenRes');
+        screenRes.textContent = `${window.screen.width}x${window.screen.height}`;
+        
+        // Определяем браузер (в стиле старых IE)
+        const browserInfo = document.getElementById('browserInfo');
+        browserInfo.textContent = 'Internet Explorer 5.0';
+        
+        // Случайные ошибки для отображения
+        const errorMessages = [
+            {
+                title: "Ошибка авторизации",
+                message: "Неверное имя пользователя или пароль.<br>Пожалуйста, проверьте данные и попробуйте снова."
+            },
+            {
+                title: "Ошибка соединения",
+                message: "Сервер авторизации не отвечает.<br>Попробуйте позже или обратитесь к системному администратору."
+            },
+            {
+                title: "Системная ошибка",
+                message: "Служба каталогов недоступна.<br>Код ошибки: 0x80070005"
+            },
+            {
+                title: "Доступ запрещен",
+                message: "Ваша учетная запись заблокирована.<br>Обратитесь к администратору системы."
+            },
+            {
+                title: "Ошибка безопасности",
+                message: "Обнаружена попытка несанкционированного доступа.<br>Ваш IP-адрес был занесен в журнал."
+            },
+            {
+                title: "Сервер перегружен",
+                message: "Слишком много попыток входа.<br>Попробуйте через 5 минут."
+            },
+            {
+                title: "Несовместимость",
+                message: "Ваш браузер не поддерживается системой.<br>Используйте Internet Explorer 5.0 или выше."
+            }
+        ];
+        
+        // Обработка формы входа - ВСЕГДА ошибка
+        const loginForm = document.getElementById('loginForm');
+        const errorWindow = document.getElementById('errorWindow');
+        const errorTitle = document.getElementById('errorTitle');
+        const errorMessage = document.getElementById('errorMessage');
+        const statusText = document.getElementById('statusText');
+        const visitorCount = document.getElementById('visitorCount');
+        
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Показываем статус "Проверка данных"
+            statusText.textContent = "Проверка данных...";
+            statusText.style.color = "#000080";
+            
+            // Имитация задержки как в старых системах
+            setTimeout(() => {
+                // Всегда показываем ошибку
+                const randomError = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+                
+                errorTitle.textContent = randomError.title;
+                errorMessage.innerHTML = randomError.message;
+                
+                // Показываем окно ошибки
+                errorWindow.style.display = 'block';
+                
+                // Обновляем статус
+                statusText.textContent = "Ошибка авторизации";
+                statusText.style.color = "#ff0000";
+                
+                // Увеличиваем счетчик посетителей
+                let currentCount = parseInt(visitorCount.textContent);
+                visitorCount.textContent = (currentCount + 1).toString().padStart(3, '0');
+                
+                // Добавляем звуковой эффект (если браузер поддерживает)
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.frequency.value = 200;
+                    oscillator.type = 'sawtooth';
+                    
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.5);
+                } catch (e) {
+                    // Браузер не поддерживает Web Audio API
+                    console.log("Звук не поддерживается");
+                }
+            }, 1500);
+        });
+        
+        // Закрытие окна ошибки
+        document.getElementById('closeError').addEventListener('click', function() {
+            errorWindow.style.display = 'none';
+        });
+        
+        document.getElementById('errorOkButton').addEventListener('click', function() {
+            errorWindow.style.display = 'none';
+        });
+        
+        // Добавляем мигающий курсор в поле логина при загрузке
+        window.onload = function() {
+            document.getElementById('username').focus();
+            
+            // Анимация для счетчика посетителей
+            setInterval(() => {
+                const counter = document.querySelector('.counter');
+                let num = parseInt(counter.textContent);
+                counter.textContent = (num + 1).toString().padStart(7, '0');
+            }, 5000);
+            
+            // Меняем статус каждые 10 секунд
+            setInterval(() => {
+                const statuses = [
+                    "Готова к авторизации",
+                    "Система активна",
+                    "Ожидание ввода данных",
+                    "Проверка соединения...",
+                    "Соединение установлено"
+                ];
+                const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                
+                if (statusText.textContent !== "Ошибка авторизации" && statusText.textContent !== "Проверка данных...") {
+                    statusText.textContent = randomStatus;
+                    statusText.style.color = "#000";
+                }
+            }, 10000);
+        };
+    </script>
+</body>
+</html>

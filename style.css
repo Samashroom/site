@@ -1,0 +1,572 @@
+/* ПЛОХОЙ CSS конца 2000-х - скевоморфизм, много градиентов, тени, блики */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    
+    color: #00cc11;
+}
+
+body {
+    font-family: "Neucha", cursive;
+    font-weight: 400;
+    font-style: normal;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAI0lEQVQImWNgYGBg+P//PwMDAwMDEwMDAwMDAwMDAwMDAwMDAwMAJhIB0qDf0vEAAAAASUVORK5CYII=') repeat,
+        linear-gradient(135deg, #86c2c2 0%, #adadad 30%,#9e9a9a 70%, #c4af91 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background: white;
+    box-shadow:
+        0 0 40px rgba(0, 200, 255, 0.5),
+        0 10px 20px rgba(255, 102, 0, 0.3),
+        inset 0 0 30px rgba(0, 255, 255, 0.3),
+        inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid;
+    border-image: linear-gradient(180deg, #0b59be 0%, #1149c4 100%) 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* толщина полоски */
+  background: linear-gradient(
+    to bottom,
+    #4dcff7 0%,     /* светлый синий */
+    #1e80b8 50%,    /* средний синий */
+    #1b6691 51%,    /* тёмный синий */
+    #2ad8f7 100%    /* яркий синий */
+);
+}
+.close {
+    border: 2px solid white;
+    
+    border-radius: 5px;
+    
+  position: absolute;
+  top: 3px; right: 5px;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 2px 5px;
+  color : white;
+  background: linear-gradient(
+        to bottom,
+        #ff7247 0%,
+        #b81e1e 50%,
+        #f72a2a 100%
+    );
+    box-shadow: 
+        inset 0 15px 30px rgba(255, 255, 255, 0.2),  /* Блик сверху */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),    /* Светлая рамка внутри */
+        0 15px 30px rgba(0, 0, 0, 0.3),              /* Размытая тень */
+}
+
+.back {
+    border: 2px solid white;
+    
+    border-radius: 5px;
+    
+  position: absolute;
+  top: 3px; left: 5px;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 2px 5px;
+  color : white;
+  background: linear-gradient(
+        to bottom,
+        #837f7e 0%,
+        #929292 50%,
+        #414141 100%
+    );
+    box-shadow: 
+        inset 0 15px 30px rgba(255, 255, 255, 0.2),  /* Блик сверху */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),    /* Светлая рамка внутри */
+        0 15px 30px rgba(0, 0, 0, 0.3),              /* Размытая тень */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 4px double #FF9900;
+    background: linear-gradient(to right, transparent, rgba(0, 204, 204, 0.1), transparent);
+    position: relative;
+}
+
+.avatar {
+    width: 221px;
+    height: 320px;
+   
+    box-shadow:
+        0 0 20px rgba(0, 204, 204, 0.7),
+        0 5px 10px rgba(255, 102, 0, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    background: white;
+    padding: 2px;
+    position: flex;
+
+}
+
+.name {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 130px;
+    margin-top: -40px;
+    font-weight: bold;
+    letter-spacing: -3px;
+    position: relative;
+    margin-bottom: -10px;
+    color: transparent; /* Полностью прозрачный основной текст */
+}
+
+.name::before,
+.name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Слой с обводкой */
+.name::before {
+    z-index: 1;
+    -webkit-text-stroke: 1px #000;
+    color: transparent; /* Делаем основной текст прозрачным, видна только обводка */
+}
+
+/* Слой с градиентом */
+.name::after {
+    z-index: 2;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #ff6600 25%,
+        #fffecf 50%,
+        #e24a4a 51%,
+        hsl(24, 94%, 57%) 60%,
+        #eb772a 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* Убираем обводку у этого слоя */
+    -webkit-text-stroke: 0;
+}
+
+
+.pronounce {
+    color: #009999;
+}
+
+/* Стили для обёртки (важно для позиционирования) */
+.hint-wrapper {
+    position: relative;
+    /* Чтобы окошко позиционировалось относительно абзаца */
+    display: inline-block;
+    /* Чтобы не растягивалось на всю ширину */
+    cursor: help;
+    /* Меняем курсор на "справка" */
+}
+
+/* Стили самого окошка-справки */
+.pronounce-hint {
+    /* Позиционирование и размеры */
+    position: absolute;
+    bottom: 100%;
+    /* Появляется над элементом */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    /* Центрирование + начальный сдвиг */
+    /* Цвета из небинарного флага */
+    background: linear-gradient(to right,
+            rgb(247, 230, 75, 0.7) 0%,
+            rgb(255, 255, 255, 0.7) 33%,
+            rgba(153, 43, 255, 0.7) 66%,
+            rgba(51, 51, 51, 0.7) 100%);
+    color: #000000;
+    font-weight: 400;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 19px;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    /* Чтобы текст не переносился */
+    /* Границы в стиле флага */
+    border: 2px solid #00f2ff;
+    /* Фиолетовая рамка */
+    box-shadow: 0 4px 12px rgba(156, 89, 209, 0.3);
+    /* Лёгкая фиолетовая тень */
+    /* Анимация и скрытие по умолчанию */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    /* Плавная "прыгающая" анимация */
+    z-index: 100;
+    /* Чтобы было поверх других элементов */
+    /* Отступ от абзаца */
+    margin-bottom: 8px;
+}
+
+
+/* Стрелочка-указатель (опционально, но улучшает UX) */
+.hint-arrow {
+    position: absolute;
+    top: 100%;
+    /* Под окошком */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #9C59D1;
+    /* Фиолетовая стрелочка */
+}
+
+/* Показываем окошко при наведении на обёртку */
+.hint-wrapper:hover .pronounce-hint,
+/* Показываем окошко при тапе на телефоне (через псевдокласс :focus-within) */
+.hint-wrapper:focus-within .pronounce-hint {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    /* Поднимается на финальную позицию */
+}
+
+/* Для лучшей доступности на мобильных: 
+   добавляем tabindex, чтобы элемент мог получать фокус */
+.hint-wrapper:focus {
+    outline: none;
+    /* Убираем стандартный outline, но можно стилизовать свою обводку */
+}
+
+/* Небольшая адаптивность: на очень маленьких экранах делаем текст многострочным */
+@media (max-width: 480px) {
+    .pronounce-hint {
+        white-space: normal;
+        /* Текст переносится */
+        min-width: 180px;
+        /* Минимальная ширина */
+        max-width: 250px;
+        /* Максимальная ширина */
+    }
+}
+
+.description {
+    font-family: "Handjet", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "ELGR" 1,
+    "ELSH" 2;
+    
+    font-size: 24px;
+    color: #00cc11;
+    line-height: 1.7;
+    background: rgb(0, 0, 0);
+    padding: 0px 20px 0px 0px;
+    border-radius: 3px;
+    border: 3px solid #00CCCC;
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.3),
+        0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    margin-top: 20px;
+    position: relative;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+.linkbox {
+    display: flex;
+    justify-content: center; /* Похоже на space-between, но с отступами по краям */
+    align-items: center;
+    width: 100%;
+    gap: 25px;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: row; /* по умолчанию для flex, можно не писать */
+    justify-content: center; /* Ключевое изменение! */
+    align-items: center;
+    width: 100%;
+    gap: 5px; /* Отступ только между элементами */
+    flex-wrap: wrap; /* Позволяет переносить элементы на новую строку, если не хватает места */
+    margin-top: 10px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #00c6e9 0%, #00a5bb 50%, #00adcc 100%);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 4px outset #00FFFF;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+.link:hover {
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 50%, #FF9900 100%);
+    transform: scale(1.02);
+    border: 4px outset #FFCC00;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.link:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        inset 0 8px 15px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+    border: 4px inset #FFCC00;
+}
+
+/* Блик на кнопках */
+.link::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: rotate(25deg);
+    transition: all 0.8s ease;
+}
+
+.link:hover::before {
+    left: 150%;
+}
+
+
+.link[data-color="green"] {
+  background: linear-gradient(135deg, #00e927 0%, #00bb28 50%, #00e927 100%);
+  border: 4px outset #00FF40; /* Зелёная граница вместо голубой */
+}
+
+
+.link[data-color="green"]:hover {
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 50%, #FF9900 100%);
+    transform: scale(1.02);
+    border: 4px outset #FFCC00;
+}
+
+.zvzd{
+    width: 100px;
+}
+
+.link-icon {
+    margin-right: 20px;
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        inset 0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    margin-bottom: -15px;
+    padding: 10px;
+    width: 50%;
+    background: linear-gradient(90deg, #00cccc54 0%, #ff99001f 50%, #00cccc54 100%);
+    border-radius: 5px;
+    box-shadow: inset 0 0 20px rgba(0, 204, 204, 0.2);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #f7f7f7 0%, #f5f5f5 100%);
+    border-radius: 50%;
+    color: rgb(255, 153, 0);
+    font-size: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+    border: 3px outset #b9c5c5;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, #68e1ff 0%, #249ad1 100%);
+    transform: scale(1.2) rotate(5deg);
+    box-shadow:
+        0 0 25px rgba(255, 102, 0, 0.7),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 3px outset #FFCC00;
+}
+
+.footer {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    background: linear-gradient(90deg, #00CCCC 0%, #FF9900 50%, #00CCCC 100%);
+    border-radius: 15px;
+    border: 4px groove #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+
+
+/* Стиль конца 2000-х для мобильных */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        background: linear-gradient(45deg, #00FFFF, #FF9900, #FFFFFF);
+        background-attachment: fixed;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+        border-width: 5px;
+        margin: 10px auto;
+    }
+
+    .name {
+        font-size: 36px;
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .link {
+        padding: 20px;
+        font-size: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .link-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .social-links {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+}
+
+/* Стиль для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .name {
+        font-size: 28px;
+        word-wrap: break-word;
+    }
+
+    .description {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .link {
+        padding: 18px;
+        font-size: 18px;
+    }
+
+    .link-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+/* Хак для старых IE */
+* html .container {
+    width: 800px;
+}
+
+*:first-child+html .link {
+    zoom: 1;
+}
+
+/* Вращающаяся анимация для соц-иконок при наведении */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.social-link:hover i {
+    animation: spin 0.5s linear;
+}
