@@ -506,10 +506,6 @@ body {
     letter-spacing: -2px; /* Отрицательное значение сближает буквы */
     }
 
-    .avatar {
-        width: 120px;
-        height: 120px;
-    }
 
     .link {
         padding: 20px;
@@ -596,6 +592,7 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
 
