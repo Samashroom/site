@@ -140,7 +140,7 @@ body {
     position: relative;
     margin-bottom: -10px;
     
-    letter-spacing: -7px; /* Отрицательное значение сближает буквы */
+    letter-spacing: -4px; /* Отрицательное значение сближает буквы */
     color: transparent; /* Полностью прозрачный основной текст */
 }
 
@@ -592,6 +592,7 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
 
