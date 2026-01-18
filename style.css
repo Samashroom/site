@@ -10,6 +10,14 @@ a{
     color: #00cc11;
 }
 
+@font-face {
+    font-family: 'Impact';
+    src: url('assets/Impact.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* Для оптимизации загрузки */
+}
+
 body {
     font-family: "Neucha", cursive;
     font-weight: 400;
@@ -125,13 +133,14 @@ body {
 }
 
 .name {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, sans-serif;
     font-size: 130px;
     margin-top: -40px;
     font-weight: bold;
-    letter-spacing: -3px;
     position: relative;
     margin-bottom: -10px;
+    
+    letter-spacing: -7px; /* Отрицательное значение сближает буквы */
     color: transparent; /* Полностью прозрачный основной текст */
 }
 
@@ -585,6 +594,7 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
 
