@@ -502,6 +502,8 @@ body {
         font-size: 50px;
         margin-top: 0;
         margin-bottom: 0;
+        
+    letter-spacing: -2px; /* Отрицательное значение сближает буквы */
     }
 
     .avatar {
@@ -594,6 +596,7 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
 
