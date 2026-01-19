@@ -499,7 +499,7 @@ body {
     }
     
     .name {
-        font-size: 60px;
+        font-size: 80px;
         margin-top: 0;
         margin-bottom: 0;
         letter-spacing: 0px; /* Отрицательное значение сближает буквы */
@@ -591,6 +591,7 @@ body {
     animation: spin 0.5s linear;
 
 }
+
 
 
 
