@@ -5,8 +5,8 @@
     box-sizing: border-box;
 }
 
-a{
-    
+a {
+
     color: #00cc11;
 }
 
@@ -15,31 +15,27 @@ a{
     src: url('assets/Impact.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-    font-display: swap; /* Для оптимизации загрузки */
+    font-display: swap;
+    /* Для оптимизации загрузки */
 }
 
 body {
     font-family: "Neucha", cursive;
-    background: 
+    background:
         /* Основной градиент */
-        linear-gradient(45deg, 
-            #1e9b9b 0%, 
+        linear-gradient(45deg,
+            #1e9b9b 0%,
             #cf7900 70%,
-            rgb(233, 197, 149) 100%
-        ),
+            rgb(233, 197, 149) 100%),
         /* Крупные блестки */
-        radial-gradient(
-            circle at 20% 80%,
+        radial-gradient(circle at 20% 80%,
             rgba(255, 255, 255, 0.2) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 80% 20%,
+            transparent 50%),
+        radial-gradient(circle at 80% 20%,
             rgba(255, 255, 255, 0.15) 0%,
-            transparent 50%
-        ),
+            transparent 50%),
         url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-    
+
     background-attachment: fixed;
     background-blend-mode: overlay, screen, screen, normal;
     min-height: 100vh;
@@ -63,66 +59,75 @@ body {
 }
 
 .container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px; /* толщина полоски */
-  background: linear-gradient(
-    to bottom,
-    #4dcff7 0%,     /* светлый синий */
-    #1e80b8 50%,    /* средний синий */
-    #1b6691 51%,    /* тёмный синий */
-    #2ad8f7 100%    /* яркий синий */
-);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* толщина полоски */
+    background: linear-gradient(to bottom,
+            #4dcff7 0%,
+            /* светлый синий */
+            #1e80b8 50%,
+            /* средний синий */
+            #1b6691 51%,
+            /* тёмный синий */
+            #2ad8f7 100%
+            /* яркий синий */
+        );
 }
+
 .close {
     border: 2px solid white;
-    
+
     border-radius: 5px;
-    
-  position: absolute;
-  top: 3px; right: 5px;
-  background: none;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 2px 5px;
-  color : white;
-  background: linear-gradient(
-        to bottom,
-        #ff7247 0%,
-        #b81e1e 50%,
-        #f72a2a 100%
-    );
-    box-shadow: 
-        inset 0 15px 30px rgba(255, 255, 255, 0.2),  /* Блик сверху */
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),    /* Светлая рамка внутри */
-        0 15px 30px rgba(0, 0, 0, 0.3),              /* Размытая тень */
+
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 2px 5px;
+    color: white;
+    background: linear-gradient(to bottom,
+            #ff7247 0%,
+            #b81e1e 50%,
+            #f72a2a 100%);
+    box-shadow:
+        inset 0 15px 30px rgba(255, 255, 255, 0.2),
+        /* Блик сверху */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        /* Светлая рамка внутри */
+        0 15px 30px rgba(0, 0, 0, 0.3),
+        /* Размытая тень */
 }
 
 .back {
     border: 2px solid white;
-    
+
     border-radius: 5px;
-    
-  position: absolute;
-  top: 3px; left: 5px;
-  background: none;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 2px 5px;
-  color : white;
-  background: linear-gradient(
-        to bottom,
-        #837f7e 0%,
-        #929292 50%,
-        #414141 100%
-    );
-    box-shadow: 
-        inset 0 15px 30px rgba(255, 255, 255, 0.2),  /* Блик сверху */
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),    /* Светлая рамка внутри */
-        0 15px 30px rgba(0, 0, 0, 0.3),              /* Размытая тень */
+
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 2px 5px;
+    color: white;
+    background: linear-gradient(to bottom,
+            #837f7e 0%,
+            #929292 50%,
+            #414141 100%);
+    box-shadow:
+        inset 0 15px 30px rgba(255, 255, 255, 0.2),
+        /* Блик сверху */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        /* Светлая рамка внутри */
+        0 15px 30px rgba(0, 0, 0, 0.3),
+        /* Размытая тень */
 }
 
 .header {
@@ -137,7 +142,7 @@ body {
 .avatar {
     width: 221px;
     height: 320px;
-   
+
     box-shadow:
         0 0 20px rgba(0, 204, 204, 0.7),
         0 5px 10px rgba(255, 102, 0, 0.5),
@@ -156,9 +161,11 @@ body {
     font-weight: bold;
     position: relative;
     margin-bottom: -10px;
-    
-    letter-spacing: -4px; /* Отрицательное значение сближает буквы */
-    color: transparent; /* Полностью прозрачный основной текст */
+
+    letter-spacing: -4px;
+    /* Отрицательное значение сближает буквы */
+    color: transparent;
+    /* Полностью прозрачный основной текст */
 }
 
 .name::before,
@@ -175,21 +182,20 @@ body {
 .name::before {
     z-index: 1;
     -webkit-text-stroke: 1px #000;
-    color: transparent; /* Делаем основной текст прозрачным, видна только обводка */
+    color: transparent;
+    /* Делаем основной текст прозрачным, видна только обводка */
 }
 
 /* Слой с градиентом */
 .name::after {
     z-index: 2;
-    background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #ff6600 25%,
-        #fffecf 50%,
-        #e24a4a 51%,
-        hsl(24, 94%, 57%) 60%,
-        #eb772a 100%
-    );
+    background: linear-gradient(180deg,
+            #ffffff 0%,
+            #ff6600 25%,
+            #fffecf 50%,
+            #e24a4a 51%,
+            hsl(24, 94%, 57%) 60%,
+            #eb772a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -299,13 +305,13 @@ body {
 
 .description {
     font-family: "Handjet", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
-  font-variation-settings:
-    "ELGR" 1,
-    "ELSH" 2;
-    
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "ELGR" 1,
+        "ELSH" 2;
+
     font-size: 24px;
     color: #00cc11;
     line-height: 1.7;
@@ -327,9 +333,11 @@ body {
     gap: 15px;
     width: 100%;
 }
+
 .linkbox {
     display: flex;
-    justify-content: center; /* Похоже на space-between, но с отступами по краям */
+    justify-content: center;
+    /* Похоже на space-between, но с отступами по краям */
     align-items: center;
     width: 100%;
     gap: 25px;
@@ -339,12 +347,16 @@ body {
 
 .box {
     display: flex;
-    flex-direction: row; /* по умолчанию для flex, можно не писать */
-    justify-content: center; /* Ключевое изменение! */
+    flex-direction: row;
+    /* по умолчанию для flex, можно не писать */
+    justify-content: center;
+    /* Ключевое изменение! */
     align-items: center;
     width: 100%;
-    gap: 5px; /* Отступ только между элементами */
-    flex-wrap: wrap; /* Позволяет переносить элементы на новую строку, если не хватает места */
+    gap: 5px;
+    /* Отступ только между элементами */
+    flex-wrap: wrap;
+    /* Позволяет переносить элементы на новую строку, если не хватает места */
     margin-top: 10px;
 }
 
@@ -404,8 +416,9 @@ body {
 
 
 .link[data-color="green"] {
-  background: linear-gradient(135deg, #00e927 0%, #00bb28 50%, #00e927 100%);
-  border: 4px outset #00FF40; /* Зелёная граница вместо голубой */
+    background: linear-gradient(135deg, #00e927 0%, #00bb28 50%, #00e927 100%);
+    border: 4px outset #00FF40;
+    /* Зелёная граница вместо голубой */
 }
 
 
@@ -415,7 +428,7 @@ body {
     border: 4px outset #FFCC00;
 }
 
-.zvzd{
+.zvzd {
     width: 100px;
 }
 
@@ -478,25 +491,58 @@ body {
     border: 3px outset #FFCC00;
 }
 
-.about-section{
+.about-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: -10px;
 }
 
-.about-header{
-    margin-top: 2px;
- text-align: center;
+.about-stats {
+    display: flex;
+    flex-direction: row;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    
+    font-family: "Handjet", sans-serif;
+}
+
+.about-stat {
+    font-size: x-large;
+    margin-left: 3px;
+    text-align: center;
+    background: linear-gradient(to bottom,
+            #cecece 0%,
+            /* светлый синий */
+            #8f8f8f 50%,
+            /* средний синий */
+            #494949 51%,
+            /* тёмный синий */
+            #7c7c7c 100%
+            /* яркий синий */
+        );
+    color: rgb(255, 255, 255);
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.about-header {
+    text-align: center;
     width: 100%;
-  height: 40px; /* толщина полоски */
-  background: linear-gradient(
-    to bottom,
-    #217919 0%,     /* светлый синий */
-    #2c6412 50%,    /* средний синий */
-    #145c11 51%,    /* тёмный синий */
-    #1d6e35 100%    /* яркий синий */
-);
+    height: 40px;
+    /* толщина полоски */
+    background: linear-gradient(to bottom,
+            #217919 0%,
+            /* светлый синий */
+            #2c6412 50%,
+            /* средний синий */
+            #145c11 51%,
+            /* тёмный синий */
+            #1d6e35 100%
+            /* яркий синий */
+        );
     font-size: xx-large;
     color: white;
     padding-top: 5px;
@@ -511,10 +557,11 @@ body {
         0 5px 15px rgba(64, 65, 71, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         inset 0 -5px 5px rgba(0, 0, 0, 0.2);
-    border: 3px solid #1d6e35; /* Исправлено */
-     line-height: 1.5;
-     color: #000000;
-     
+    border: 3px solid #1d6e35;
+    /* Исправлено */
+    line-height: 1.5;
+    color: #000000;
+    width: 100%;
     font-family: "Handjet", sans-serif;
 }
 
@@ -541,26 +588,21 @@ body {
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
-        background: 
-        /* Основной градиент */
-        linear-gradient(45deg, 
-            #1e9b9b 0%, 
-            #cf7900 70%,
-            rgb(233, 197, 149) 100%
-        ),
-        /* Крупные блестки */
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(255, 255, 255, 0.2) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(255, 255, 255, 0.15) 0%,
-            transparent 50%
-        ),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-    
+        background:
+            /* Основной градиент */
+            linear-gradient(45deg,
+                #1e9b9b 0%,
+                #cf7900 70%,
+                rgb(233, 197, 149) 100%),
+            /* Крупные блестки */
+            radial-gradient(circle at 20% 80%,
+                rgba(255, 255, 255, 0.2) 0%,
+                transparent 50%),
+            radial-gradient(circle at 80% 20%,
+                rgba(255, 255, 255, 0.15) 0%,
+                transparent 50%),
+            url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+
         background-attachment: fixed;
     }
 
@@ -570,16 +612,18 @@ body {
         border-width: 1px;
         margin: 10px auto;
     }
-    .pronounce-hint{
-    bottom: -100%;    
-    transform: translateX(-50%) translateY(10px);
+
+    .pronounce-hint {
+        bottom: -100%;
+        transform: translateX(-50%) translateY(10px);
     }
-    
+
     .name {
         font-size: 80px;
         margin-top: 0;
         margin-bottom: 0;
-        letter-spacing: 0px; /* Отрицательное значение сближает буквы */
+        letter-spacing: 0px;
+        /* Отрицательное значение сближает буквы */
     }
 
 
@@ -594,9 +638,11 @@ body {
         margin-right: 0;
         margin-bottom: 15px;
     }
-    .zvzd{
+
+    .zvzd {
         width: 50px;
     }
+
     .social-links {
         gap: 10px;
         flex-wrap: wrap;
@@ -631,12 +677,13 @@ body {
         height: 50px;
         font-size: 24px;
     }
-    .social-links{
-        
+
+    .social-links {
+
         margin-bottom: 10px;
-        
+
     }
-    
+
 
     .footer {
         font-size: 14px;
@@ -668,15 +715,3 @@ body {
     animation: spin 0.5s linear;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
