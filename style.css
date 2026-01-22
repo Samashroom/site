@@ -504,7 +504,7 @@ body {
     flex-direction: row;
     margin-top: -10px;
     margin-bottom: 20px;
-    
+    flex-wrap: wrap;
     font-family: "Handjet", sans-serif;
 }
 
@@ -713,5 +713,6 @@ body {
 
 .social-link:hover i {
     animation: spin 0.5s linear;
+
 
 }
