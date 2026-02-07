@@ -1,4 +1,16 @@
 /* ПЛОХОЙ CSS конца 2000-х - скевоморфизм, много градиентов, тени, блики */
+:root {
+    --shadow-glass: inset 0 15px 30px rgba(255, 255, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 15px 30px rgba(0, 0, 0, 0.3);
+    --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    --shadow-text-hover: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    --color-primary: #00cc11;
+    --color-cyan: #00CCCC;
+    --color-orange: #FF9900;
+    --gradient-bg: linear-gradient(45deg, #1e9b9b 0%, #cf7900 70%, rgb(233, 197, 149) 100%);
+    --gradient-shine-1: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    --gradient-shine-2: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +18,7 @@
 }
 
 a {
-
-    color: #00cc11;
+    color: var(--color-primary);
 }
 
 @font-face {
@@ -16,26 +27,11 @@ a {
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-    /* Для оптимизации загрузки */
 }
 
 body {
     font-family: "Neucha", cursive;
-    background:
-        /* Основной градиент */
-        linear-gradient(45deg,
-            #1e9b9b 0%,
-            #cf7900 70%,
-            rgb(233, 197, 149) 100%),
-        /* Крупные блестки */
-        radial-gradient(circle at 20% 80%,
-            rgba(255, 255, 255, 0.2) 0%,
-            transparent 50%),
-        radial-gradient(circle at 80% 20%,
-            rgba(255, 255, 255, 0.15) 0%,
-            transparent 50%),
-        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-
+    background: var(--gradient-bg), var(--gradient-shine-1), var(--gradient-shine-2), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
     background-attachment: fixed;
     background-blend-mode: overlay, screen, screen, normal;
     min-height: 100vh;
@@ -65,24 +61,12 @@ body {
     left: 0;
     width: 100%;
     height: 40px;
-    /* толщина полоски */
-    background: linear-gradient(to bottom,
-            #4dcff7 0%,
-            /* светлый синий */
-            #1e80b8 50%,
-            /* средний синий */
-            #1b6691 51%,
-            /* тёмный синий */
-            #2ad8f7 100%
-            /* яркий синий */
-        );
+    background: linear-gradient(to bottom, #4dcff7 0%, #1e80b8 50%, #1b6691 51%, #2ad8f7 100%);
 }
 
 .close {
     border: 2px solid white;
-
     border-radius: 5px;
-
     position: absolute;
     top: 3px;
     right: 5px;
@@ -91,24 +75,13 @@ body {
     font-size: 20px;
     padding: 2px 5px;
     color: white;
-    background: linear-gradient(to bottom,
-            #ff7247 0%,
-            #b81e1e 50%,
-            #f72a2a 100%);
-    box-shadow:
-        inset 0 15px 30px rgba(255, 255, 255, 0.2),
-        /* Блик сверху */
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        /* Светлая рамка внутри */
-        0 15px 30px rgba(0, 0, 0, 0.3),
-        /* Размытая тень */
+    background: linear-gradient(to bottom, #ff7247 0%, #b81e1e 50%, #f72a2a 100%);
+    box-shadow: var(--shadow-glass);
 }
 
 .back {
     border: 2px solid white;
-
     border-radius: 5px;
-
     position: absolute;
     top: 3px;
     left: 5px;
@@ -117,17 +90,8 @@ body {
     font-size: 20px;
     padding: 2px 5px;
     color: white;
-    background: linear-gradient(to bottom,
-            #837f7e 0%,
-            #929292 50%,
-            #414141 100%);
-    box-shadow:
-        inset 0 15px 30px rgba(255, 255, 255, 0.2),
-        /* Блик сверху */
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        /* Светлая рамка внутри */
-        0 15px 30px rgba(0, 0, 0, 0.3),
-        /* Размытая тень */
+    background: linear-gradient(to bottom, #837f7e 0%, #929292 50%, #414141 100%);
+    box-shadow: var(--shadow-glass);
 }
 
 .header {
@@ -142,16 +106,11 @@ body {
 .avatar {
     width: 221px;
     height: 320px;
-
-    box-shadow:
-        0 0 20px rgba(0, 204, 204, 0.7),
-        0 5px 10px rgba(255, 102, 0, 0.5),
-        inset 0 0 20px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(0, 204, 204, 0.7), 0 5px 10px rgba(255, 102, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.8);
     margin-right: 20px;
     background: white;
     padding: 2px;
     position: flex;
-
 }
 
 .name {
@@ -161,11 +120,8 @@ body {
     font-weight: bold;
     position: relative;
     margin-bottom: -10px;
-
     letter-spacing: -4px;
-    /* Отрицательное значение сближает буквы */
     color: transparent;
-    /* Полностью прозрачный основной текст */
 }
 
 .name::before,
@@ -178,28 +134,18 @@ body {
     height: 100%;
 }
 
-/* Слой с обводкой */
 .name::before {
     z-index: 1;
     -webkit-text-stroke: 1px #000;
     color: transparent;
-    /* Делаем основной текст прозрачным, видна только обводка */
 }
 
-/* Слой с градиентом */
 .name::after {
     z-index: 2;
-    background: linear-gradient(180deg,
-            #ffffff 0%,
-            #ff6600 25%,
-            #fffecf 50%,
-            #e24a4a 51%,
-            hsl(24, 94%, 57%) 60%,
-            #eb772a 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #ff6600 25%, #fffecf 50%, #e24a4a 51%, hsl(24, 94%, 57%) 60%, #eb772a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* Убираем обводку у этого слоя */
     -webkit-text-stroke: 0;
 }
 
@@ -208,31 +154,18 @@ body {
     color: #009999;
 }
 
-/* Стили для обёртки (важно для позиционирования) */
 .hint-wrapper {
     position: relative;
-    /* Чтобы окошко позиционировалось относительно абзаца */
     display: inline-block;
-    /* Чтобы не растягивалось на всю ширину */
     cursor: help;
-    /* Меняем курсор на "справка" */
 }
 
-/* Стили самого окошка-справки */
 .pronounce-hint {
-    /* Позиционирование и размеры */
     position: absolute;
     bottom: 100%;
-    /* Появляется над элементом */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    /* Центрирование + начальный сдвиг */
-    /* Цвета из небинарного флага */
-    background: linear-gradient(to right,
-            rgb(247, 230, 75, 0.7) 0%,
-            rgb(255, 255, 255, 0.7) 33%,
-            rgba(153, 43, 255, 0.7) 66%,
-            rgba(51, 51, 51, 0.7) 100%);
+    background: linear-gradient(to right, rgb(247, 230, 75, 0.7) 0%, rgb(255, 255, 255, 0.7) 33%, rgba(153, 43, 255, 0.7) 66%, rgba(51, 51, 51, 0.7) 100%);
     color: #000000;
     font-weight: 400;
     padding: 12px 16px;
@@ -241,29 +174,18 @@ body {
     line-height: 1.4;
     text-align: center;
     white-space: nowrap;
-    /* Чтобы текст не переносился */
-    /* Границы в стиле флага */
     border: 2px solid #00f2ff;
-    /* Фиолетовая рамка */
     box-shadow: 0 4px 12px rgba(156, 89, 209, 0.3);
-    /* Лёгкая фиолетовая тень */
-    /* Анимация и скрытие по умолчанию */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    /* Плавная "прыгающая" анимация */
     z-index: 100;
-    /* Чтобы было поверх других элементов */
-    /* Отступ от абзаца */
     margin-bottom: 8px;
 }
 
-
-/* Стрелочка-указатель (опционально, но улучшает UX) */
 .hint-arrow {
     position: absolute;
     top: 100%;
-    /* Под окошком */
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -271,24 +193,17 @@ body {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid #9C59D1;
-    /* Фиолетовая стрелочка */
 }
 
-/* Показываем окошко при наведении на обёртку */
 .hint-wrapper:hover .pronounce-hint,
-/* Показываем окошко при тапе на телефоне (через псевдокласс :focus-within) */
 .hint-wrapper:focus-within .pronounce-hint {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
-    /* Поднимается на финальную позицию */
 }
 
-/* Для лучшей доступности на мобильных: 
-   добавляем tabindex, чтобы элемент мог получать фокус */
 .hint-wrapper:focus {
     outline: none;
-    /* Убираем стандартный outline, но можно стилизовать свою обводку */
 }
 
 /* Небольшая адаптивность: на очень маленьких экранах делаем текст многострочным */
@@ -308,20 +223,15 @@ body {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    font-variation-settings:
-        "ELGR" 1,
-        "ELSH" 2;
-
+    font-variation-settings: "ELGR" 1, "ELSH" 2;
     font-size: 24px;
-    color: #00cc11;
+    color: var(--color-primary);
     line-height: 1.7;
     background: rgb(0, 0, 0);
     padding: 0px 20px 0px 0px;
     border-radius: 3px;
-    border: 3px solid #00CCCC;
-    box-shadow:
-        inset 0 0 15px rgba(0, 0, 0, 0.3),
-        0 5px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--color-cyan);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.1);
     text-align: justify;
     margin-top: 20px;
     position: relative;
@@ -337,7 +247,6 @@ body {
 .linkbox {
     display: flex;
     justify-content: center;
-    /* Похоже на space-between, но с отступами по краям */
     align-items: center;
     width: 100%;
     gap: 25px;
@@ -348,15 +257,11 @@ body {
 .box {
     display: flex;
     flex-direction: row;
-    /* по умолчанию для flex, можно не писать */
     justify-content: center;
-    /* Ключевое изменение! */
     align-items: center;
     width: 100%;
     gap: 5px;
-    /* Отступ только между элементами */
     flex-wrap: wrap;
-    /* Позволяет переносить элементы на новую строку, если не хватает места */
     margin-top: 10px;
 }
 
@@ -374,16 +279,15 @@ body {
     border: 4px outset #00FFFF;
     position: relative;
     overflow: hidden;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: var(--shadow-text);
 }
-
 
 .link:hover {
     background: linear-gradient(135deg, #FF9900 0%, #FF6600 50%, #FF9900 100%);
     transform: scale(1.02);
     border: 4px outset #FFCC00;
     color: #FFFFFF;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    text-shadow: var(--shadow-text-hover);
 }
 
 .link:active {
@@ -443,9 +347,7 @@ body {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow:
-        inset 0 0 10px rgba(255, 255, 255, 0.3),
-        0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3), 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .social-links {
@@ -473,10 +375,7 @@ body {
     font-size: 32px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow:
-        0 5px 15px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -5px 5px rgba(0, 0, 0, 0.2);
     border: 3px outset #b9c5c5;
     position: relative;
     overflow: hidden;
@@ -485,9 +384,7 @@ body {
 .social-link:hover {
     background: linear-gradient(135deg, #68e1ff 0%, #249ad1 100%);
     transform: scale(1.2) rotate(5deg);
-    box-shadow:
-        0 0 25px rgba(255, 102, 0, 0.7),
-        0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 25px rgba(255, 102, 0, 0.7), 0 8px 20px rgba(0, 0, 0, 0.4);
     border: 3px outset #FFCC00;
 }
 
@@ -512,16 +409,7 @@ body {
     font-size: x-large;
     margin-left: 3px;
     text-align: center;
-    background: linear-gradient(to bottom,
-            #cecece 0%,
-            /* светлый синий */
-            #8f8f8f 50%,
-            /* средний синий */
-            #494949 51%,
-            /* тёмный синий */
-            #7c7c7c 100%
-            /* яркий синий */
-        );
+    background: linear-gradient(to bottom, #cecece 0%, #8f8f8f 50%, #494949 51%, #7c7c7c 100%);
     color: rgb(255, 255, 255);
     padding: 5px 10px 5px 10px;
     border: 1px solid #000000;
@@ -532,17 +420,7 @@ body {
     text-align: center;
     width: 100%;
     height: 40px;
-    /* толщина полоски */
-    background: linear-gradient(to bottom,
-            #217919 0%,
-            /* светлый синий */
-            #2c6412 50%,
-            /* средний синий */
-            #145c11 51%,
-            /* тёмный синий */
-            #1d6e35 100%
-            /* яркий синий */
-        );
+    background: linear-gradient(to bottom, #217919 0%, #2c6412 50%, #145c11 51%, #1d6e35 100%);
     font-size: xx-large;
     color: white;
     padding-top: 5px;
@@ -552,13 +430,9 @@ body {
 .about-text {
     padding: 3%;
     font-size: x-large;
-    background: linear-gradient(180deg, rgb(240, 233, 225) 0%, rgb(243, 195, 136)100%);
-    box-shadow:
-        0 5px 15px rgba(64, 65, 71, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(180deg, rgb(240, 233, 225) 0%, rgb(243, 195, 136) 100%);
+    box-shadow: 0 5px 15px rgba(64, 65, 71, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -5px 5px rgba(0, 0, 0, 0.2);
     border: 3px solid #1d6e35;
-    /* Исправлено */
     line-height: 1.5;
     color: #000000;
     width: 100%;
@@ -580,32 +454,21 @@ body {
 }
 
 .project-link:hover {
-    text-shadow:
-        1px 1px 0 rgb(255, 255, 255),
-        -1px -1px 0 rgb(255, 255, 255),
-        1px -1px 0 rgb(255, 255, 255),
-        -1px 1px 0 rgb(255, 255, 255);
+    text-shadow: 1px 1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255);
     border-radius: 10px;
-
-    background: linear-gradient(45deg,
-            #ff6b3e6e 0%,
-            #ffe3476e 50%,
-            #0ae4eb83 100%);
+    background: linear-gradient(45deg, #ff6b3e6e 0%, #ffe3476e 50%, #0ae4eb83 100%);
     color: #05393d;
     border: 2px solid rgb(6, 81, 100);
-
 }
 
 .project-link:hover img {
     transform: scale(1.3);
-
     transition: transform 0.1s ease;
-    /* Плавность */
 }
 
 .project-icon {
     width: 40%;
-    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.2));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
 
 .project-description {
@@ -623,7 +486,7 @@ body {
     text-align: center;
     color: #FFFFFF;
     font-size: 16px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--shadow-text);
     position: relative;
 }
 
@@ -633,21 +496,7 @@ body {
 @media screen and (max-width: 768px) {
     body {
         padding: 10px;
-        background:
-            /* Основной градиент */
-            linear-gradient(45deg,
-                #1e9b9b 0%,
-                #cf7900 70%,
-                rgb(233, 197, 149) 100%),
-            /* Крупные блестки */
-            radial-gradient(circle at 20% 80%,
-                rgba(255, 255, 255, 0.2) 0%,
-                transparent 50%),
-            radial-gradient(circle at 80% 20%,
-                rgba(255, 255, 255, 0.15) 0%,
-                transparent 50%),
-            url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-
+        background: var(--gradient-bg), var(--gradient-shine-1), var(--gradient-shine-2), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         background-attachment: fixed;
     }
 
@@ -724,11 +573,8 @@ body {
     }
 
     .social-links {
-
         margin-bottom: 10px;
-
     }
-
 
     .footer {
         font-size: 14px;
@@ -736,7 +582,6 @@ body {
     }
 }
 
-/* Хак для старых IE */
 * html .container {
     width: 800px;
 }
@@ -745,12 +590,10 @@ body {
     zoom: 1;
 }
 
-/* Вращающаяся анимация для соц-иконок при наведении */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
@@ -758,8 +601,6 @@ body {
 
 .social-link:hover i {
     animation: spin 0.5s linear;
-
-
 }
 
 
