@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+
+    <title>Квест | Самашрум</title>
+
+<meta name="description" content="Официальный сайт артиста/ки Самашрум">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Самашрум" />
+<link rel="manifest" href="/assets/site.webmanifest" />
+
+<meta property="og:title" content="Квест">
+<meta property="og:description" content="Официальный сайт артиста/ки Самашрум">
+<meta property="og:url" content="https://samashroom.ru/">
+<meta property="og:type" content="website">
+
+
+    <style>
+        body {
+            font-family: monospace;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #quest-container {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            padding: 20px;
+
+            justify-content: center;
+        }
+
+        #quest-image {
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        #quest-text {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            min-height: 80px;
+        }
+
+        #interaction-area {
+            margin-top: 20px;
+        }
+
+        .btn,
+        .input-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #44444498;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover,
+        .input-btn:hover {
+            background: #55555571;
+        }
+
+        .choice-btn {
+            background: #33663354;
+        }
+
+        .choice-btn:hover {
+            background: #ff80179c;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        #text-input {
+            flex-grow: 1;
+            padding: 12px;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: white;
+            font-family: monospace;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="quest-container">
+    <div style="
+        display: flex;
+        justify-content: center;
+        align-items: center;">
+        <img id="quest-image" src="" alt="Свободное место">
+    </div>
+    <div id="quest-text">Загрузка...</div>
+    <div id="interaction-area"></div>
+</div>
+
+<script>
+    // ОБЪЕКТ КВЕСТА - ВСЯ ЛОГИКА ЗДЕСЬ
+    const questData = {
+        "start": {
+            image: "/assets/princel/1.png",
+            text: "...",
+            type: "continue",
+            next: "01"
+        },
+        "01": {
+            image: "/assets/princel/1.png",
+            text: ".......",
+            type: "choice",
+            choices: [
+                { text: "Хей!", next: "02" },
+                { text: "...", next: "01" }
+            ]
+        },
+        "02": {
+            image: "/assets/princel/5.png",
+            text: "!!!",
+            type: "continue",
+            next: "03"
+        },
+        "03": {
+            image: "/assets/princel/3.png",
+            text: "Я думал, тут никого не будет",
+            type: "continue", // Убрал дублирование type
+            next: "04"
+        },
+        "04": { 
+            image: "/assets/princel/4.png",
+            text: "Отстань",
+            type: "continue",
+            next: "05"
+        },
+        "05": {
+            image: "/assets/princel/4.png",
+            text: "...",
+            type: "input",
+            answer: "кря",
+            correctNext: "success",
+            wrongNext: "wrong"
+        },
+        "wrong": {
+            image: "/assets/princel/4.png",
+            text: "Хорошо, я понял",
+            type: "continue",
+            next: "bad_ending"
+        },
+        "success": {
+            image: "/assets/princel/5.png",
+            text: "Э?",
+            type: "continue",
+            next: "06"
+        },
+        "bad_ending": {
+            image: "",
+            text: "...",
+            type: "continue"
+        },
+        "06": {
+            image: "/assets/princel/2.png",
+            text: "Не знаю, что ты собирался этим сказать, но давай так",
+            type: "continue",
+            next: "07"
+        },
+        "07": {
+            image: "/assets/princel/1.png",
+            text: "Если хочешь, можешь приходить. Мне иногда бывает скучно",
+            type: "continue",
+            next: "08"
+        },
+        "08": {
+            image: "/assets/princel/4.png",
+            text: "А взамен я... Не знаю... Буду рассказывать секреты",
+            type: "continue",
+            next: "09"
+        },
+        "09": {
+            image: "/assets/princel/2.png",
+            text: "Этот сайт такой дырявый, что я тут поселился. Я могу подглядеть, что там внутри",
+            type: "continue",
+            next: "10"
+        },
+        "10": {
+            image: "/assets/princel/2.png",
+            text: "Хочешь секрет?",
+            type: "choice",
+            choices: [
+                { text: "Хочу!", next: "11" },
+                { text: "Нет", next: "wrong" }
+            ]
+        },
+        "11": {
+            image: "/assets/princel/2.png",
+            text: "Если ввести какие-то буквы в основном окне, то откроется пасхался. что-то про какой-то шанс и компанию? не знаю",
+            type: "continue",
+            next: "12"
+        },
+        "12": {
+            image: "/assets/princel/1.png",
+            text: "Всё, а теперь иди",
+            type: "continue",
+            next: "13"
+        },
+        "13": {
+            image: "/assets/princel/4.png",
+            text: "...",
+            type: "continue"
+        }
+    };
+
+    // ОСНОВНАЯ ФУНКЦИЯ - ВСЯ ЛОГИКА ОТОБРАЖЕНИЯ
+    function showStep(stepId) {
+        const step = questData[stepId];
+        if (!step) return;
+
+        // Обновляем картинку и текст
+        document.getElementById('quest-image').src = step.image;
+        typeText(document.getElementById('quest-text'), step.text, 10);
+
+        const area = document.getElementById('interaction-area');
+        area.innerHTML = ''; // Очищаем
+
+        if (step.type === "continue") {
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.textContent = '→';
+            btn.onclick = () => showStep(step.next);
+            area.appendChild(btn);
+        }
+        else if (step.type === "choice") {
+            step.choices.forEach(choice => {
+                const btn = document.createElement('button');
+                btn.className = 'btn choice-btn';
+                btn.textContent = choice.text;
+                btn.onclick = () => showStep(choice.next);
+                area.appendChild(btn);
+            });
+        }
+        else if (step.type === "input") {
+            const container = document.createElement('div');
+            container.className = 'input-area';
+
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = 'text-input';
+            input.placeholder = '...';
+
+            const btn = document.createElement('button');
+            btn.className = 'input-btn';
+            btn.textContent = 'Отправить';
+            btn.onclick = () => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const nextStep = (userAnswer === step.answer) ? step.correctNext : step.wrongNext;
+                showStep(nextStep);
+            };
+
+            // Отправка по Enter
+            input.onkeypress = (e) => {
+                if (e.key === 'Enter') btn.click();
+            };
+
+            container.appendChild(input);
+            container.appendChild(btn);
+            area.appendChild(container);
+            input.focus();
+        }
+    }
+
+    // Запускаем квест
+    document.addEventListener('DOMContentLoaded', () => showStep("start"));
+
+    function typeText(element, text, speed = 30) {
+        let i = 0;
+        element.textContent = '';
+
+        function typeChar() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(typeChar, speed);
+            }
+        }
+
+        typeChar();
+    }
+</script>
+</body>
+</html>

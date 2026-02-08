@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if page.title %}
+    <title>{{ page.title }} | Самашрум</title>
+{% else %}
+    <title>Самашрум</title>
+{% endif %}
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Официальный сайт артиста/ки Самашрум{% endif %}">
+<link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="{{ '/assets/favicon-96x96.png' | relative_url }}" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}" />
+<link rel="shortcut icon" href="{{ '/assets/favicon.ico' | relative_url }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | relative_url }}" />
+<meta name="apple-mobile-web-app-title" content="Самашрум" />
+<link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}" />
+
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Самашрум - официальный сайт{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Официальный сайт артиста/ки Самашрум{% endif %}">
+<meta property="og:url" content="https://samashroom.ru/">
+<meta property="og:type" content="website">
+{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% include head.html %}
+    <style>
+        body {
+            font-family: monospace;
+            color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #quest-container {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            padding: 20px;
+
+            justify-content: center;
+        }
+
+        #quest-image {
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        #quest-text {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            min-height: 80px;
+        }
+
+        #interaction-area {
+            margin-top: 20px;
+        }
+
+        .btn,
+        .input-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #44444498;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover,
+        .input-btn:hover {
+            background: #55555571;
+        }
+
+        .choice-btn {
+            background: #33663354;
+        }
+
+        .choice-btn:hover {
+            background: #ff80179c;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        #text-input {
+            flex-grow: 1;
+            padding: 12px;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: white;
+            font-family: monospace;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    {{ content }}
+</body>
+</html>

@@ -1,0 +1,606 @@
+/* ПЛОХОЙ CSS конца 2000-х - скевоморфизм, много градиентов, тени, блики */
+:root {
+    --shadow-glass: inset 0 15px 30px rgba(255, 255, 255, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 15px 30px rgba(0, 0, 0, 0.3);
+    --shadow-text: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    --shadow-text-hover: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    --color-primary: #00cc11;
+    --color-cyan: #00CCCC;
+    --color-orange: #FF9900;
+    --gradient-bg: linear-gradient(45deg, #1e9b9b 0%, #cf7900 70%, rgb(233, 197, 149) 100%);
+    --gradient-shine-1: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    --gradient-shine-2: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--color-primary);
+}
+
+@font-face {
+    font-family: 'Impact';
+    src: url('assets/Impact.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: "Neucha", cursive;
+    background: var(--gradient-bg), var(--gradient-shine-1), var(--gradient-shine-2), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-blend-mode: overlay, screen, screen, normal;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background: white;
+    box-shadow:
+        0 0 40px rgba(0, 200, 255, 0.5),
+        0 10px 20px rgba(255, 102, 0, 0.3),
+        inset 0 0 30px rgba(0, 255, 255, 0.3),
+        inset 0 -10px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid;
+    border-image: linear-gradient(180deg, #0b59be 0%, #1149c4 100%) 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #4dcff7 0%, #1e80b8 50%, #1b6691 51%, #2ad8f7 100%);
+}
+
+.close {
+    border: 2px solid white;
+    border-radius: 5px;
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 2px 5px;
+    color: white;
+    background: linear-gradient(to bottom, #ff7247 0%, #b81e1e 50%, #f72a2a 100%);
+    box-shadow: var(--shadow-glass);
+}
+
+.back {
+    border: 2px solid white;
+    border-radius: 5px;
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 2px 5px;
+    color: white;
+    background: linear-gradient(to bottom, #837f7e 0%, #929292 50%, #414141 100%);
+    box-shadow: var(--shadow-glass);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 25px;
+    border-bottom: 4px double #FF9900;
+    background: linear-gradient(to right, transparent, rgba(0, 204, 204, 0.1), transparent);
+    position: relative;
+}
+
+.avatar {
+    width: 221px;
+    height: 320px;
+    box-shadow: 0 0 20px rgba(0, 204, 204, 0.7), 0 5px 10px rgba(255, 102, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    background: white;
+    padding: 2px;
+    position: flex;
+}
+
+.name {
+    font-family: Impact, sans-serif;
+    font-size: 130px;
+    margin-top: -40px;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: -10px;
+    letter-spacing: -4px;
+    color: transparent;
+}
+
+.name::before,
+.name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.name::before {
+    z-index: 1;
+    -webkit-text-stroke: 1px #000;
+    color: transparent;
+}
+
+.name::after {
+    z-index: 2;
+    background: linear-gradient(180deg, #ffffff 0%, #ff6600 25%, #fffecf 50%, #e24a4a 51%, hsl(24, 94%, 57%) 60%, #eb772a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 0;
+}
+
+
+.pronounce {
+    color: #009999;
+}
+
+.hint-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.pronounce-hint {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: linear-gradient(to right, rgb(247, 230, 75, 0.7) 0%, rgb(255, 255, 255, 0.7) 33%, rgba(153, 43, 255, 0.7) 66%, rgba(51, 51, 51, 0.7) 100%);
+    color: #000000;
+    font-weight: 400;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 19px;
+    line-height: 1.4;
+    text-align: center;
+    white-space: nowrap;
+    border: 2px solid #00f2ff;
+    box-shadow: 0 4px 12px rgba(156, 89, 209, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 100;
+    margin-bottom: 8px;
+}
+
+.hint-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #9C59D1;
+}
+
+.hint-wrapper:hover .pronounce-hint,
+.hint-wrapper:focus-within .pronounce-hint {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.hint-wrapper:focus {
+    outline: none;
+}
+
+/* Небольшая адаптивность: на очень маленьких экранах делаем текст многострочным */
+@media (max-width: 480px) {
+    .pronounce-hint {
+        white-space: normal;
+        /* Текст переносится */
+        min-width: 180px;
+        /* Минимальная ширина */
+        max-width: 250px;
+        /* Максимальная ширина */
+    }
+}
+
+.description {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "ELGR" 1, "ELSH" 2;
+    font-size: 24px;
+    color: var(--color-primary);
+    line-height: 1.7;
+    background: rgb(0, 0, 0);
+    padding: 0px 20px 0px 0px;
+    border-radius: 3px;
+    border: 3px solid var(--color-cyan);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    margin-top: 20px;
+    position: relative;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.linkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 25px;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, #00c6e9 0%, #00a5bb 50%, #00adcc 100%);
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 4px outset #00FFFF;
+    position: relative;
+    overflow: hidden;
+    text-shadow: var(--shadow-text);
+}
+
+.link:hover {
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 50%, #FF9900 100%);
+    transform: scale(1.02);
+    border: 4px outset #FFCC00;
+    color: #FFFFFF;
+    text-shadow: var(--shadow-text-hover);
+}
+
+.link:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+        inset 0 8px 15px rgba(0, 0, 0, 0.4),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+    border: 4px inset #FFCC00;
+}
+
+/* Блик на кнопках */
+.link::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: rotate(25deg);
+    transition: all 0.8s ease;
+}
+
+.link:hover::before {
+    left: 150%;
+}
+
+
+.link[data-color="green"] {
+    background: linear-gradient(135deg, #00e927 0%, #00bb28 50%, #00e927 100%);
+    border: 4px outset #00FF40;
+    /* Зелёная граница вместо голубой */
+}
+
+
+.link[data-color="green"]:hover {
+    background: linear-gradient(135deg, #FF9900 0%, #FF6600 50%, #FF9900 100%);
+    transform: scale(1.02);
+    border: 4px outset #FFCC00;
+}
+
+.zvzd {
+    width: 100px;
+}
+
+.link-icon {
+    margin-right: 20px;
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3), 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 20px 0;
+    margin-bottom: -15px;
+    padding: 10px;
+    width: 70%;
+    background: linear-gradient(90deg, #00cccc54 0%, #ff99001f 50%, #00cccc54 100%);
+    border-radius: 5px;
+    box-shadow: inset 0 0 20px rgba(0, 204, 204, 0.2);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #f7f7f7 0%, #f5f5f5 100%);
+    border-radius: 50%;
+    color: rgb(255, 153, 0);
+    font-size: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+    border: 3px outset #b9c5c5;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, #68e1ff 0%, #249ad1 100%);
+    transform: scale(1.2) rotate(5deg);
+    box-shadow: 0 0 25px rgba(255, 102, 0, 0.7), 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 3px outset #FFCC00;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+.about-stats {
+    display: flex;
+    flex-direction: row;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-family: "Handjet", sans-serif;
+}
+
+.about-stat {
+    font-size: x-large;
+    margin-left: 3px;
+    text-align: center;
+    background: linear-gradient(to bottom, #cecece 0%, #8f8f8f 50%, #494949 51%, #7c7c7c 100%);
+    color: rgb(255, 255, 255);
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+.about-header {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #217919 0%, #2c6412 50%, #145c11 51%, #1d6e35 100%);
+    font-size: xx-large;
+    color: white;
+    padding-top: 5px;
+    font-family: "Handjet", sans-serif;
+}
+
+.about-text {
+    padding: 3%;
+    font-size: x-large;
+    background: linear-gradient(180deg, rgb(240, 233, 225) 0%, rgb(243, 195, 136) 100%);
+    box-shadow: 0 5px 15px rgba(64, 65, 71, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -5px 5px rgba(0, 0, 0, 0.2);
+    border: 3px solid #1d6e35;
+    line-height: 1.5;
+    color: #000000;
+    width: 100%;
+    font-family: "Handjet", sans-serif;
+}
+
+
+.project-link {
+    z-index: 10;
+    width: 90%;
+    height: min-content;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: xx-large;
+    text-decoration: none;
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+.project-link:hover {
+    text-shadow: 1px 1px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255);
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff6b3e6e 0%, #ffe3476e 50%, #0ae4eb83 100%);
+    color: #05393d;
+    border: 2px solid rgb(6, 81, 100);
+}
+
+.project-link:hover img {
+    transform: scale(1.3);
+    transition: transform 0.1s ease;
+}
+
+.project-icon {
+    width: 40%;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
+}
+
+.project-description {
+    font-size: medium;
+}
+
+@media screen and (max-width: 768px) {
+    .project-icon {
+        width: 50%;
+    }
+}
+.footer {
+    margin-top: 40px;
+    padding: 25px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-shadow: var(--shadow-text);
+    position: relative;
+}
+
+
+
+/* Стиль конца 2000-х для мобильных */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        background: var(--gradient-bg), var(--gradient-shine-1), var(--gradient-shine-2), url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        background-attachment: fixed;
+    }
+
+    .container {
+        padding: 20px;
+        border-radius: 1px;
+        border-width: 1px;
+        margin: 10px auto;
+    }
+
+    .pronounce-hint {
+        bottom: -100%;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    .name {
+        font-size: 80px;
+        margin-top: 0;
+        margin-bottom: 0;
+        letter-spacing: 0px;
+        /* Отрицательное значение сближает буквы */
+    }
+
+
+    .link {
+        padding: 20px;
+        font-size: 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .link-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .zvzd {
+        width: 50px;
+    }
+
+    .social-links {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+/* Стиль для очень маленьких экранов */
+@media screen and (max-width: 480px) {
+    .name {
+        font-size: 28px;
+        word-wrap: break-word;
+    }
+
+    .description {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .link {
+        padding: 18px;
+        font-size: 18px;
+    }
+
+    .link-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .social-links {
+        margin-bottom: 10px;
+    }
+
+    .footer {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+* html .container {
+    width: 800px;
+}
+
+*:first-child+html .link {
+    zoom: 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.social-link:hover i {
+    animation: spin 0.5s linear;
+}
+
+

@@ -1,51 +1,11 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Самашрум</title>
-    <meta name="description" content="Официальный сайт артиста/ки Самашрум">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap" rel="stylesheet">
-
-
-    <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="shortcut icon" href="assets/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-
-
-    <meta property="og:title" content="Самашрум">
-    <meta property="og:description" content="Официальный сайт артиста/ки Самашрум. Ссылки на соцсети. Информация">
-    <meta property="og:url" content="https://samashroom.ru/">
-    <meta property="og:type" content="website">
-
-
-</head>
-
-<body>
-    <div class="container">
-        <a href="close.html">
-            <div class="close">
-                <i class="fa-solid fa-x"></i>
-            </div>
-
-        </a>
-        <div class="back" id="backButton">
-            <i class="fa-solid fa-arrow-left"></i>
-        </div>
+---
+layout: default
+title: Проекты
+description: Официальный сайт артиста/ки Самашрум. Ссылки на соцсети. Информация
+---
 
 
         <div class="header">
-            <!-- Замените URL на свою реальную фотографию -->
 
             <h1 class="name" data-text="ПРОЕКТЫ">ПРОЕКТЫ</h1>
 
@@ -62,7 +22,7 @@
 
         <div class="about-section" style="margin-bottom: 40px; gap: 20px">
             <a href="https://samashroom.github.io/sgd/" class="project-link"  target="_blank" rel="noopener noreferrer">
-                <img class="project-icon" src="assets/сгд обложка.png" style="margin-top: -5%;">
+                <img class="project-icon" src="{{ '/assets/сгд обложка.png' | relative_url }}" style="margin-top: -5%;">
                 <div style="max-width: 50%;">
                     <p class="project-title">С глаз долой</p>
                     <div class="project-description">Архив маленького комикса, который я рисовала в 16 лет, не судите
@@ -81,12 +41,12 @@
 
                     </div>
                 </div>
-                 <img class="project-icon" src="assets/айвью.png" style="margin-top: -5%; margin-left: 6%;">
+                 <img class="project-icon" src="{{ '/assets/айвью.png' | relative_url }}" style="margin-top: -5%; margin-left: 6%;">
             </a>
 
             <a href="" class="project-link">
                
-                 <img class="project-icon" src="assets/гриффтимы.png" style="margin-top: -5%; margin-right: 2%;">
+                 <img class="project-icon" src="{{ '/assets/гриффтимы.png' | relative_url }}" style="margin-top: -5%; margin-right: 2%;">
                 <div style="max-width: 50%;">
                     <p class="project-title">Колодец спускается против часовой</p>
                     <div class="project-description">Проект мечты. Детективно-приключенческая история, основанная на книгах Герберта Уэллса.
@@ -97,22 +57,4 @@
             </a>
         </div>
 
-
-
-    </div>
-
-
-
-    <script src="easter-egg.js"></script>
-
-
-</body>
-<script>
-    document.querySelectorAll('.hint-wrapper').forEach(wrapper => {
-        wrapper.setAttribute('tabindex', '0'); // Делаем элемент фокусируемым
-    });
-</script>
-
-
-</html>
 

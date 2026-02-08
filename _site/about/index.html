@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+
+    <title>О Самашрум | Самашрум</title>
+
+<meta name="description" content="Официальный сайт артиста/ки Самашрум">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Самашрум" />
+<link rel="manifest" href="/assets/site.webmanifest" />
+
+<meta property="og:title" content="О Самашрум">
+<meta property="og:description" content="Официальный сайт артиста/ки Самашрум">
+<meta property="og:url" content="https://samashroom.ru/">
+<meta property="og:type" content="website">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <a href="close">
+    <div class="close">
+        <i class="fa-solid fa-x"></i>
+    </div>
+</a>
+<div class="back" id="backButton">
+    <i class="fa-solid fa-arrow-left"></i>
+</div>
+
+                <div class="header">
+            <!-- Замените URL на свою реальную фотографию -->
+
+            <h1 class="name" data-text="О САМАШРУМ">О САМАШРУМ</h1>
+
+        </div>
+        <div class="about-section">
+
+            <div class="about-stats">
+                
+                <div class="about-stat">Имя: Сэм</div>
+                <div class="about-stat">Эниол квир</div>
+                <div class="about-stat">катить арбуэ.</div>
+                <div class="about-stat">Возраст: <span id="myAge"></span></div>
+
+                <script>
+                    const birthDate = new Date(2005, 3, 19);
+                    const today = new Date();
+
+                    let age = today.getFullYear() - birthDate.getFullYear();
+                    if (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())) {
+                        age--;
+                    }
+
+                    // Правильное окончание
+                    function getAgeWord(age) {
+                        const lastDigit = age % 10;
+                        const lastTwoDigits = age % 100;
+
+                        if (lastTwoDigits >= 11 && lastTwoDigits <= 19) return 'лет';
+                        if (lastDigit === 1) return 'год';
+                        if (lastDigit >= 2 && lastDigit <= 4) return 'года';
+                        return 'лет';
+                    }
+
+                    document.getElementById('myAge').textContent = `${age} ${getAgeWord(age)}`;
+                </script>
+                <div class="about-stat">. . .</div>
+            </div>
+            <div class="about-header">Кто я?</div>
+            <div class="about-text">Я вроде бы художник, мб видеоблогер,
+                музыкант??? Я предпочитаю называть себя сторителлером.
+                Мой приоритет - рассказывать истории и создавать миры через самые разные формы творчества</div>
+            
+            <div class="about-header">Какова моя цель?</div>
+            <div class="about-text">Быть больше как Скотт Коутон чем Яндередев</div>
+
+            
+        </div>
+
+
+    </div>
+
+    <script src="/easter-egg.js"></script>
+<div class="footer">Самашрум - официальный сайт артиста, 2026</div>
+
+<script>
+    document.querySelectorAll('.hint-wrapper').forEach(wrapper => {
+        wrapper.setAttribute('tabindex', '0'); // Делаем элемент фокусируемым
+    });
+</script>
+
+</body>
+</html>
