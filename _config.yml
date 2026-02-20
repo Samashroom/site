@@ -1,1 +1,4 @@
-permalink: pretty  # Это уберет .html
+permalink: pretty
+title: Самашрум
+description: Самашрум - официальный сайт автора
+theme: jekyll-theme-cayman
