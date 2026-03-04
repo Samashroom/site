@@ -603,4 +603,125 @@ body {
     animation: spin 0.5s linear;
 }
 
+/* Сетка галереи */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
 
+/* Карточка работы */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
+  transition: transform 0.2s;
+  background: #f0f0f000;  /* цвет на время загрузки */
+  aspect-ratio: 1/1;     /* квадратные ячейки, можно менять */
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+}
+
+/* Контейнер для картинки */
+.gallery-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Основная картинка */
+.gallery-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* картинка влезает целиком */
+  display: block;
+  z-index: 2;  /* поверх размытого фона */
+  background: transparent;
+}
+
+/* Подпись (появляется при наведении) */
+.gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;  /* половина высоты родителя */
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 20px 0px 15px 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.gallery-item:hover .gallery-info {
+  opacity: 1;
+}
+
+.gallery-info h3 {
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 1000;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Панель с тегами */
+.tags-showcase {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0 40px 0;
+  border: 1px solid #e9ecef;
+}
+
+.tag-category {
+  margin-bottom: 20px;
+}
+
+.tag-category h4 {
+  margin: 0 0 10px 0;
+  font-size: 0.9em;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Цвета для категорий (как на карточках) */
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.tag:hover {
+  transform: scale(1.05);
+}
+
+.tag-progress { background: #2ecc71; }
+.tag-type { background: #3498db; }
+.tag-rights { background: #9b59b6; }
+.tag-origin { background: #f39c12; }
+.tag-character { background: #1abc9c; }
+.tag-warning { background: #e74c3c; }
+.tag-misc { background: #95a5a6; }
