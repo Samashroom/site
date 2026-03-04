@@ -1,6 +1,6 @@
 ---
 title: "Колыбельная вечной мерзлоты"
-date: 2025-09-20
+date: 2025-11-05
 image: kvm.jpg
 description: "Обложка трека"
 art_tags:
@@ -12,3 +12,4 @@ art_tags:
   warnings: ["обморожение"]
   misc: []
 ---
+
