@@ -1,0 +1,217 @@
+---
+layout: default
+title: Галерея
+---
+<article class="work-single">
+
+
+
+    <!-- Изображение (во всю ширину, адаптивное) -->
+    <div class="work-image-container">
+        <img src="{{ page.image_path | relative_url }}{{ page.image }}" alt="{{ page.title }}" class="work-image"
+            loading="lazy">
+    </div>
+    <!-- Заголовок и дата (минимально) -->
+    <article class="pic-info">
+        <div class="work-header">
+            <h1>{{ page.title }}</h1>
+            {% if page.date %}
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y" }}</time>
+            {% endif %}
+        </div>
+        <!-- Описание (только если есть) -->
+        {% if page.description and page.description != "" %}
+        <div class="work-description">
+            {{ page.description }}
+        </div>
+        {% endif %}
+
+        <!-- Теги (компактно) -->
+        {% if page.art_tags %}
+        <div class="work-tags">
+            {% if page.art_tags.progress %}
+            {% for tag in page.art_tags.progress %}
+            <span class="tag tag-progress">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.art_tags.type %}
+            {% for tag in page.art_tags.type %}
+            <span class="tag tag-type">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.art_tags.rights %}
+            {% for tag in page.art_tags.rights %}
+            <span class="tag tag-rights">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.art_tags.origin %}
+            {% for tag in page.art_tags.origin %}
+            <span class="tag tag-origin">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.art_tags.characters %}
+            {% for tag in page.art_tags.characters %}
+            <span class="tag tag-character">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.art_tags.warnings %}
+            {% for tag in page.art_tags.warnings %}
+            <span class="tag tag-warning">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% if page.art_tags.misc %}
+            {% for tag in page.art_tags.misc %}
+            <span class="tag tag-misc">{{ tag }}</span>
+            {% endfor %}
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <!-- Контент (если есть) -->
+        {% if content and content != "" %}
+        <div class="work-content">
+            {{ content }}
+        </div>
+        {% endif %}
+    </article>
+
+
+
+</article>
+
+<style>
+    /* Минималистичные стили */
+    .work-single {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff57;
+    }
+    .work-header {
+        margin-bottom: 30px;
+    }
+
+    .work-header h1 {
+        font-size: 2em;
+        margin: 0 0 5px 0;
+    }
+
+    .work-header time {
+        color: #666;
+        font-size: 0.9em;
+    }
+
+
+    .work-image-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .work-image {
+        max-width: 100%;
+        max-height: 90vh;
+        /* не выше экрана */
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .work-description {
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #333;
+        margin: 30px 0;
+        padding: 0 10px;
+    }
+
+    .work-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 30px 0;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        color: white;
+        font-size: 0.85em;
+    }
+
+    .tag-progress {
+        background: #2ecc71;
+    }
+
+    .tag-type {
+        background: #3498db;
+    }
+
+    .tag-rights {
+        background: #9b59b6;
+    }
+
+    .tag-origin {
+        background: #f39c12;
+    }
+
+    .tag-character {
+        background: #1abc9c;
+    }
+
+    .tag-warning {
+        background: #e74c3c;
+    }
+
+    .tag-misc {
+        background: #95a5a6;
+    }
+
+    .work-content {
+        line-height: 1.8;
+        color: #333;
+        margin: 30px 0;
+    }
+
+    .work-navigation {
+        margin-top: 50px;
+    }
+
+    .work-navigation a {
+        color: #666;
+        text-decoration: none;
+        font-size: 0.9em;
+    }
+
+    .work-navigation a:hover {
+        color: #000;
+    }
+
+    /* Адаптация для мобильных */
+    @media (max-width: 600px) {
+        .work-single {
+            padding: 15px;
+        }
+
+        .work-header h1 {
+            font-size: 1.5em;
+        }
+
+        .work-description {
+            font-size: 1em;
+        }
+    }
+</style>

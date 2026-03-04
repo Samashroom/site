@@ -1,19 +1,566 @@
 ---
 layout: default
-title: Проекты
-description:
+title: Галерея
 ---
+
 <div class="header">
-
-    <h1 class="name" data-text="АРТЫ">АРТЫ</h1>
-
+    <h1 class="name" data-text="ГАЛЕРЕЯ">ГАЛЕРЕЯ</h1>
     <div class="description">
-        <div
-            style="display: flex; padding: 10px 0px 10px 10px; flex-direction: column; justify-content: center; align-items: center;">
-
-            <p style="font-size: larger;">* СТРАНИЦА В РАЗРАБОТКЕ
-            </p>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <p>* Эта страница всё ещё в разработке!</p>
         </div>
     </div>
+</div>
+
+<!-- ПАНЕЛЬ ТЕГОВ -->
+<div class="tags-panel" id="tags-panel">
+
+  <!-- Прогресс (зелёные) -->
+  {% assign progress_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.progress %}
+  {% for tag in work.art_tags.progress %}
+  {% assign progress_tags = progress_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign progress_tags = progress_tags | uniq | sort %}
+  {% for tag in progress_tags %}
+  <span class="tag tag-progress filter-tag" data-tag="{{ tag }}" data-type="normal">{{ tag }}</span>
+  {% endfor %}
+
+  <!-- Тип (синие) -->
+  {% assign type_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.type %}
+  {% for tag in work.art_tags.type %}
+  {% assign type_tags = type_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign type_tags = type_tags | uniq | sort %}
+  {% for tag in type_tags %}
+  <span class="tag tag-type filter-tag" data-tag="{{ tag }}" data-type="normal">{{ tag }}</span>
+  {% endfor %}
+
+  <!-- Права (фиолетовые) -->
+  {% assign rights_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.rights %}
+  {% for tag in work.art_tags.rights %}
+  {% assign rights_tags = rights_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign rights_tags = rights_tags | uniq | sort %}
+  {% for tag in rights_tags %}
+  <span class="tag tag-rights filter-tag" data-tag="{{ tag }}" data-type="normal">{{ tag }}</span>
+  {% endfor %}
+
+  <!-- Происхождение (оранжевые) -->
+  {% assign origin_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.origin %}
+  {% for tag in work.art_tags.origin %}
+  {% assign origin_tags = origin_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign origin_tags = origin_tags | uniq | sort %}
+  {% for tag in origin_tags %}
+  <span class="tag tag-origin filter-tag" data-tag="{{ tag }}" data-type="normal">{{ tag }}</span>
+  {% endfor %}
+
+  <!-- Персонажи (бирюзовые) -->
+  {% assign characters_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.characters %}
+  {% for tag in work.art_tags.characters %}
+  {% assign characters_tags = characters_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign characters_tags = characters_tags | uniq | sort %}
+  {% for tag in characters_tags %}
+  <span class="tag tag-character filter-tag" data-tag="{{ tag }}" data-type="normal">{{ tag }}</span>
+  {% endfor %}
+
+  <!-- Разное (серые) -->
+  {% assign misc_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.misc %}
+  {% for tag in work.art_tags.misc %}
+  {% assign misc_tags = misc_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign misc_tags = misc_tags | uniq | sort %}
+  {% for tag in misc_tags %}
+  <span class="tag tag-misc filter-tag" data-tag="{{ tag }}" data-type="normal">{{ tag }}</span>
+  {% endfor %}
+
+  <!-- Кнопка сброса -->
+  <button class="reset-btn" id="reset-filters">× сбросить всё</button>
 
 </div>
+
+<!-- ОТДЕЛЬНАЯ СТРОКА ДЛЯ ТРИГГЕРОВ (работают наоборот) -->
+<div class="warnings-panel" id="warnings-panel">
+  <span class="warnings-label">🚫 Скрыть:</span>
+  {% assign warnings_tags = "" | split: "," %}
+  {% for work in site.gallery %}
+  {% if work.art_tags.warnings %}
+  {% for tag in work.art_tags.warnings %}
+  {% assign warnings_tags = warnings_tags | push: tag %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+  {% assign warnings_tags = warnings_tags | uniq | sort %}
+  {% for tag in warnings_tags %}
+  <span class="tag tag-warning filter-tag" data-tag="{{ tag }}" data-type="warning">{{ tag }}</span>
+  {% endfor %}
+</div>
+
+<!-- Сетка галереи (добавляем data-атрибуты со всеми тегами работы) -->
+<div class="gallery-grid" id="gallery-grid">
+  {% for work in site.gallery reversed %}
+  {% assign image_full = work.image_path | relative_url | append: work.image %}
+
+  <!-- Собираем все теги работы в одну строку для фильтрации -->
+  {% assign work_tags_list = "" %}
+  {% if work.art_tags.progress %}
+  {% for tag in work.art_tags.progress %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+  {% if work.art_tags.type %}
+  {% for tag in work.art_tags.type %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+  {% if work.art_tags.rights %}
+  {% for tag in work.art_tags.rights %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+  {% if work.art_tags.origin %}
+  {% for tag in work.art_tags.origin %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+  {% if work.art_tags.characters %}
+  {% for tag in work.art_tags.characters %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+  {% if work.art_tags.warnings %}
+  {% for tag in work.art_tags.warnings %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+  {% if work.art_tags.misc %}
+  {% for tag in work.art_tags.misc %}
+  {% assign work_tags_list = work_tags_list | append: tag | append: "|" %}
+  {% endfor %}
+  {% endif %}
+
+  <div class="gallery-item" data-tags="{{ work_tags_list | strip | append: '|' }}">
+    <a href="{{ work.url }}" class="gallery-link">
+      <div class="gallery-image-wrapper">
+        <img src="{{ image_full }}" alt="{{ work.title }}" class="gallery-image" loading="lazy">
+      </div>
+      <div class="gallery-info">
+        <h3>{{ work.title }}</h3>
+        {% if work.description and work.description != "" %}
+        <div>{{ work.description | truncate: 80 }}</div>
+        {% endif %}
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+
+<!-- СКРИПТ ДЛЯ УМНЫХ ТЕГОВ С СОХРАНЕНИЕМ В СЕССИИ -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const TAGS_LIMIT = 5; // Сколько тегов показывать по умолчанию
+
+    // Функция для сворачивания/разворачивания панелей
+    function setupCollapsiblePanel(panelSelector, buttonText, limit) {
+      const panel = document.querySelector(panelSelector);
+      if (!panel) return;
+
+      const tags = panel.querySelectorAll('.filter-tag');
+      if (tags.length <= limit) return; // Если тегов мало, не сворачиваем
+
+      // Скрываем лишние теги
+      for (let i = limit; i < tags.length; i++) {
+        tags[i].style.display = 'none';
+      }
+
+      // СОЗДАЁМ КНОПКУ С ОТДЕЛЬНЫМ КЛАССОМ
+      const showAllBtn = document.createElement('span');
+      showAllBtn.className = 'show-more-btn'; // Только свой класс, без .tag!
+      showAllBtn.textContent = buttonText;
+      showAllBtn.style.cursor = 'pointer';
+
+      showAllBtn.addEventListener('click', function () {
+        const isHidden = tags[limit].style.display === 'none';
+
+        // Показываем или скрываем все теги
+        for (let i = limit; i < tags.length; i++) {
+          tags[i].style.display = isHidden ? 'inline-block' : 'none';
+        }
+
+        // Меняем текст кнопки
+        this.textContent = isHidden ? 'скрыть' : buttonText;
+      });
+
+      panel.appendChild(showAllBtn);
+    }
+
+    // Применяем к панели тегов и предупреждений
+    setupCollapsiblePanel('#tags-panel', '➕ показать все теги', TAGS_LIMIT);
+    setupCollapsiblePanel('#warnings-panel', '➕ показать все предупреждения', TAGS_LIMIT);
+    // Элементы
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const resetBtn = document.getElementById('reset-filters');
+
+    // Множества активных тегов
+    let activeNormalTags = new Set();
+    let activeWarningTags = new Set();
+
+    // Функция сохранения состояния в sessionStorage
+    function saveFilterState() {
+      const state = {
+        normal: Array.from(activeNormalTags),
+        warning: Array.from(activeWarningTags),
+        scrollPosition: window.scrollY // Сохраняем позицию скролла
+      };
+      sessionStorage.setItem('galleryFilters', JSON.stringify(state));
+    }
+
+    // Функция загрузки состояния из sessionStorage
+    function loadFilterState() {
+      const savedState = sessionStorage.getItem('galleryFilters');
+      if (savedState) {
+        try {
+          const state = JSON.parse(savedState);
+
+          // Восстанавливаем множества
+          activeNormalTags = new Set(state.normal || []);
+          activeWarningTags = new Set(state.warning || []);
+
+          // Визуально отмечаем активные теги
+          filterTags.forEach(tag => {
+            const tagName = tag.dataset.tag;
+            const tagType = tag.dataset.type;
+
+            if (tagType === 'warning' && activeWarningTags.has(tagName)) {
+              tag.classList.add('active');
+            } else if (tagType !== 'warning' && activeNormalTags.has(tagName)) {
+              tag.classList.add('active');
+            } else {
+              tag.classList.remove('active');
+            }
+          });
+
+          // Возвращаем позицию скролла, чтобы восстановить её позже
+          return state.scrollPosition || 0;
+        } catch (e) {
+          console.error('Ошибка при загрузке фильтров:', e);
+        }
+      }
+      return null; // нет сохранённого состояния
+    }
+
+    // Функция фильтрации
+    function filterGallery() {
+      galleryItems.forEach(item => {
+        const itemTags = item.dataset.tags || '';
+        let show = true;
+
+        // Проверяем обычные теги (должны быть ВСЕ)
+        if (activeNormalTags.size > 0) {
+          for (let tag of activeNormalTags) {
+            if (!itemTags.includes(tag + '|')) {
+              show = false;
+              break;
+            }
+          }
+        }
+
+        // Проверяем триггеры (не должно быть НИ ОДНОГО)
+        if (show && activeWarningTags.size > 0) {
+          for (let tag of activeWarningTags) {
+            if (itemTags.includes(tag + '|')) {
+              show = false;
+              break;
+            }
+          }
+        }
+
+        item.style.display = show ? 'block' : 'none';
+      });
+    }
+
+    // Сначала пробуем загрузить сохранённое состояние
+    const savedScrollPosition = loadFilterState();
+
+    // Применяем фильтры
+    filterGallery();
+
+    // Восстанавливаем позицию скролла после того, как страница полностью загрузилась
+    if (savedScrollPosition !== null && savedScrollPosition > 0) {
+      // Небольшая задержка, чтобы DOM точно отрисовался
+      setTimeout(() => {
+        window.scrollTo({
+          top: savedScrollPosition,
+          behavior: 'auto' // 'smooth' если хотите плавную прокрутку
+        });
+      }, 100);
+    }
+
+    // Сохраняем скролл при прокрутке (с небольшой задержкой для производительности)
+    let scrollTimeout;
+    window.addEventListener('scroll', function () {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        saveFilterState();
+      }, 200); // Сохраняем через 200мс после остановки скролла
+    });
+
+    // Обработчик клика по тегу
+    filterTags.forEach(tag => {
+      tag.addEventListener('click', function () {
+
+        const tagName = this.dataset.tag;
+        const tagType = this.dataset.type;
+
+        // Переключаем класс active
+        if (this.classList.contains('active')) {
+          this.classList.remove('active');
+          if (tagType === 'warning') {
+            activeWarningTags.delete(tagName);
+          } else {
+            activeNormalTags.delete(tagName);
+          }
+        } else {
+          this.classList.add('active');
+          if (tagType === 'warning') {
+            activeWarningTags.add(tagName);
+          } else {
+            activeNormalTags.add(tagName);
+          }
+        }
+
+        // Фильтруем галерею
+        filterGallery();
+
+        // Сохраняем состояние (скролл сохранится отдельно, но тут мы тоже сохраняем теги)
+        saveFilterState();
+      });
+    });
+
+    // Сброс всех фильтров
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        filterTags.forEach(t => t.classList.remove('active'));
+        activeNormalTags.clear();
+        activeWarningTags.clear();
+        filterGallery();
+
+        // Сохраняем пустое состояние
+        saveFilterState();
+
+        // Сбрасываем скролл наверх при желании (опционально)
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Дополнительно: сохраняем скролл перед уходом со страницы
+    window.addEventListener('beforeunload', function () {
+      saveFilterState();
+    });
+
+  });
+</script>
+
+<!-- Стили -->
+<style>
+  .filter-tag {
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-tag:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  .filter-tag.active {
+    filter: brightness(1.2);
+    transform: scale(1.03);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.7);
+    /* только тёмная подложка */
+  }
+
+
+  .reset-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 10px;
+    transition: background 0.2s;
+  }
+
+  .reset-btn:hover {
+    background: #5a6268;
+  }
+
+  .tags-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 10px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    align-items: center;
+  }
+
+  .warnings-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 40px 0;
+    padding: 15px;
+    background: #fff3f3;
+    border-radius: 12px;
+    align-items: center;
+    border-left: 4px solid #e74c3c;
+  }
+
+  .warnings-label {
+    font-weight: bold;
+    color: #c0392b;
+    margin-right: 5px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 500;
+
+    background-color: #AAA;
+    background-image: linear-gradient(
+        /* chrome */
+        hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0) 50%,
+        hsla(0, 0%, 0%, 0.3) 50%, hsla(0, 0%, 100%, 0.2));
+    text-shadow:
+      0 0 15px hsla(0, 0%, 100%, 1),
+      /* bloom */
+      0 2px 4px hsla(0, 0%, 0%, 0.7);
+    /* drop shadow */
+    box-shadow:
+      inset 0 -5px 20px hsla(0, 0%, 0%, 0.4),
+      /* top light */
+      inset 0 5px 20px hsla(0, 0%, 100%, 0.4);
+    /* drop shadow 2 */
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+
+  }
+
+
+  .tag:hover {
+    transform: scale(1.05);
+    box-shadow:
+      inset 0 -5px 20px hsla(0, 0%, 0%, 0.4),
+      /* top light */
+      inset 0 5px 20px hsla(0, 0%, 100%, 0.4),
+      /* bottom shadow */
+      /* multiple light sources yall */
+      -3px 3px 2px hsla(0, 0%, 0%, 0.15),
+      /* drop shadow 1 */
+      2px 5px 2px hsla(0, 0%, 0%, 0.2);
+    /* drop shadow 2 */
+  }
+
+  .tag-progress {
+    background: #ff7300;
+  }
+
+  .tag-type {
+    background: #3498db;
+  }
+
+  .tag-rights {
+    background: #1a6b06;
+  }
+
+  .tag-origin {
+    background: #004f6e;
+  }
+
+  .tag-character {
+    background: #452150;
+  }
+
+  .tag-warning {
+    background: #e74c3c;
+  }
+
+  .tag-misc {
+    background: #95a5a6;
+  }
+
+  /* КНОПКА "ПОКАЗАТЬ ВСЕ" - отдельный стиль, не зависящий от .tag */
+.show-more-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #4d4d4d11;
+    color: rgb(7, 33, 54);
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background 0.2s;
+    /* Убираем всё, что могло бы наследоваться от .tag */
+}
+
+.show-more-btn:hover {
+    background: #8f959b;
+    transform: scale(1.05);
+}
+
+/* Стили для тегов остаются без изменений */
+.tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+/* Остальные стили тегов (.tag-progress, .tag-type и т.д.) остаются как были */
+
+  /* Убедимся, что скрытые теги действительно скрыты */
+  .tag[style*="display: none"] {
+    display: none !important;
+  }
+</style>

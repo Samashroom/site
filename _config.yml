@@ -27,10 +27,23 @@ exclude:
   - .gitignore
 
 plugins:
-  - jekyll-seo-tag      # Добавляет SEO-теги в шапку сайта
-  - jekyll-sitemap       # Генерирует sitemap.xml для поисковиков
-  - jekyll-feed          # Генерирует RSS-ленту (для блога)
-  - jemoji               # Поддержка эмодзи :)
+  - jekyll-seo-tag     
+  - jekyll-sitemap      
+  - jekyll-feed          
+  - jemoji              
 
 lang: ru-RU
 
+collections:
+  gallery:           # поменяли с works на gallery
+    output: true
+    permalink: /gallery/:title/   # и в ссылке тоже gallery
+
+# Настройки по умолчанию для работ
+defaults:
+  - scope:
+      path: ""
+      type: gallery   # и здесь поменяли на gallery
+    values:
+      layout: work_new  
+      image_path: /assets/art/
