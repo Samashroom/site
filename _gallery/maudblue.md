@@ -13,6 +13,6 @@ art_tags:
   rights: ["ориджинал", "chancecorp"]
   origin: ["для себя"]
   characters: ["генерал мод гуд", "блю гуд"]
-  warnings: [""]
+  warnings: []
   misc: []
 ---
