@@ -2,3 +2,35 @@ permalink: pretty
 title: Самашрум
 description: Самашрум - официальный сайт автора
 theme: jekyll-theme-cayman
+
+url: "https://samashroom.ru"
+baseurl: ""
+
+social_links: true
+author: Самашрум
+github_username: Samashroom
+youtube_username: Samashroom      # или просто ссылка
+telegram_username: Samashroom    # username в телеграме (без @)
+tiktok_username: Samashroom 
+
+# Настройки сборки
+markdown: kramdown
+highlighter: rouge
+
+# Исключаем ненужные файлы из финальной сборки
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .gitignore
+
+plugins:
+  - jekyll-seo-tag      # Добавляет SEO-теги в шапку сайта
+  - jekyll-sitemap       # Генерирует sitemap.xml для поисковиков
+  - jekyll-feed          # Генерирует RSS-ленту (для блога)
+  - jemoji               # Поддержка эмодзи :)
+
+lang: ru-RU
+
