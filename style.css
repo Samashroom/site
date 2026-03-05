@@ -99,7 +99,7 @@ body {
     border-radius: 5px;
     position: absolute;
     top: 3px;
-    left: 25px;
+    left: 45px;
     background: none;
     cursor: pointer;
     font-size: 20px;
@@ -741,3 +741,4 @@ body {
 .tag-warning { background: #e74c3c; }
 
 .tag-misc { background: #95a5a6; }
+
