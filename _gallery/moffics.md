@@ -1,0 +1,14 @@
+---
+title: "Моффики"
+date: 2026-01-30
+image: мофики.jpg
+description: ""
+art_tags:
+  progress: ["покрас"]
+  type: ["стилизация: реклама"]
+  rights: ["chancecorp"]
+  origin: []
+  characters: []
+  warnings: []
+  misc: ["worldbuilding"]
+---
