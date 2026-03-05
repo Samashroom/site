@@ -8,7 +8,7 @@ description: "Коммишка с разработкой концепт-арта
 art_tags:
   progress: ["покрас"]
   type: ["дизайн персонажа"]
-  rights: ["ориджинал"]
+  rights: []
   origin: ["заказ"]
   characters: ["ОС"]
   warnings: []
