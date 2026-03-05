@@ -1,7 +1,7 @@
 ---
 title: "Поездка в будущее"
 date: 2025-07-17
-image: grifftim2.jpg
+image: grifftim2.png
 description: ""
 art_tags:
   progress: ["покрас"]
@@ -11,4 +11,5 @@ art_tags:
   characters: ["джеймс гриффин", "тимоти таунсенд"]
   warnings: []
   misc: ["worldbuilding"]
+
 ---
