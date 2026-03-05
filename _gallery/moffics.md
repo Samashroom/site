@@ -1,7 +1,7 @@
 ---
 title: "Моффики"
 date: 2026-01-30
-image: мофики.jpg
+image: мофики.png
 description: ""
 art_tags:
   progress: ["покрас"]
@@ -11,4 +11,5 @@ art_tags:
   characters: []
   warnings: []
   misc: ["worldbuilding"]
+
 ---
