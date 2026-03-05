@@ -10,5 +10,5 @@ art_tags:
   origin: ["для себя"]
   characters: ["джеймс гриффин", "тимоти таунсенд"]
   warnings: []
-  misc: []
+  misc: ["текст", "worldbuilding"]
 ---
