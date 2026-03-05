@@ -5,10 +5,11 @@ image: jumping.jpg
 description: "Попрыгали попрыгали там будет приз!"
 art_tags:
   progress: ["рендер"]
-  type: ["стилизация", "реклама"]
+  type: ["стилизация: реклама"]
   rights: ["ориджинал", "chancecorp"]
   origin: ["для себя"]
   characters: ["звездун"]
   warnings: ["упоминание суицида"]
   misc: []
 ---
+
