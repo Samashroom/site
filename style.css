@@ -77,6 +77,7 @@ body {
     color: white;
     background: linear-gradient(to bottom, #ff7247 0%, #b81e1e 50%, #f72a2a 100%);
     box-shadow: var(--shadow-glass);
+    z-index: 10;
 }
 
 .back {
@@ -92,9 +93,11 @@ body {
     color: white;
     background: linear-gradient(to bottom, #837f7e 0%, #929292 50%, #414141 100%);
     box-shadow: var(--shadow-glass);
+    z-index: 10;
 }
 
 .homebt {
+    z-index: 10;
     border: 2px solid rgb(38, 42, 44);
     border-radius: 5px;
     position: absolute;
@@ -741,4 +744,5 @@ body {
 .tag-warning { background: #e74c3c; }
 
 .tag-misc { background: #95a5a6; }
+
 
