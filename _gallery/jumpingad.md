@@ -1,7 +1,7 @@
 ---
 title: ""      # добавила заголовок
 date: 2026-01-29
-image: jumping.jpg
+image: /assets/art/jumping.jpg
 description: "Попрыгали попрыгали там будет приз!"
 art_tags:
   progress: ["рендер"]
@@ -12,4 +12,5 @@ art_tags:
   warnings: ["упоминание суицида"]
   misc: []
 ---
+
 
