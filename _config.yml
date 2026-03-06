@@ -46,4 +46,4 @@ defaults:
       type: gallery   # и здесь поменяли на gallery
     values:
       layout: work_new  
-      image_path: /assets/art/
+      image_path: 
