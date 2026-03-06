@@ -1,7 +1,7 @@
 ---
 title: ""
 date: 2025-07-27
-image: Феликс и Анджели.png
+image: /assets/art/Феликс и Анджели.png
 description: "Добрый дядя купит новую скрипку"
 art_tags:
   progress: ["скетч"]
@@ -11,4 +11,5 @@ art_tags:
   characters: ["феликс уинклз", "анджели хильер"]
   warnings: []
   misc: []
+
 ---
