@@ -1,7 +1,7 @@
 ---
 title: "Дизайн персонажек второго плана из КСПЧ"
 date: 2025-09-20
-image: women.png
+image: /assets/art/women.png
 description: ""
 art_tags:
   progress: ["скетч"]
@@ -13,3 +13,4 @@ art_tags:
   misc: ["заморожен"]
 
 ---
+
