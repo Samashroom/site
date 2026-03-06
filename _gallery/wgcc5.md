@@ -1,7 +1,7 @@
 ---
 title: ""
 date: 2025-07-27
-image: /assets/art/Феликс и Анджели.png
+image: /assets/art/felixandangeli.png
 description: "Добрый дядя купит новую скрипку"
 art_tags:
   progress: ["скетч"]
@@ -13,3 +13,4 @@ art_tags:
   misc: []
 
 ---
+
