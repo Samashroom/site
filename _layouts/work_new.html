@@ -2,7 +2,12 @@
 layout: default
 title: Галерея
 ---
-<meta property="og:image" content="{{ page.image_path | relative_url }}{{ page.image }}">
+{% if page.image and page.image_path %}
+  {% assign full_image = page.image_path | append: page.image %}
+  <meta property="og:image" content="{{ full_image | relative_url | prepend: site.url }}">
+{% elsif page.image %}
+  <meta property="og:image" content="{{ page.image | relative_url | prepend: site.url }}">
+{% endif %}
 {% seo %}
 <article class="work-single">
 
@@ -217,4 +222,5 @@ title: Галерея
     }
 
 </style>
+
 
