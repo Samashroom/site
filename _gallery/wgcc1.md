@@ -1,7 +1,7 @@
 ---
 title: "Артур ненавидит зеркала"
 date: 2025-07-07
-image: /assets/art/Артур.png
+image: /assets/art/wgcc1.png
 description: "В них всё видно"
 art_tags:
   progress: ["скетч"]
@@ -13,3 +13,4 @@ art_tags:
   misc: []
 
 ---
+
