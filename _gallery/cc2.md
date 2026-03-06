@@ -1,7 +1,7 @@
 ---
 title: "Разный звездун"
 date: 2026-02-21
-image: zvezduncard.png
+image: /assets/art/zvezduncard.png
 description: ""
 art_tags:
   progress: ["скетч"]
