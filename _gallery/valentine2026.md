@@ -1,7 +1,7 @@
 ---
 title: "Валентинка Звездун"
 date: 2026-02-14
-image: звездун_валентинка.jpg
+image: /assets/art/звездун_валентинка.jpg
 description: ""
 art_tags:
   progress: ["покрас"]
@@ -11,4 +11,5 @@ art_tags:
   characters: ["звездун"]
   warnings: []
   misc: ["валентинка"]
+
 ---
