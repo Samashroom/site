@@ -1,7 +1,7 @@
 ---
 title: "Карта вдохновения Айвью"
 date: 2026-02-20
-image: айвьюкарточка.png
+image: /assets/art/айвьюкарточка.png
 description: ""
 art_tags:
   progress: ["скетч"]
@@ -11,4 +11,5 @@ art_tags:
   characters: ["айвью"]
   warnings: []
   misc: []
+
 ---
