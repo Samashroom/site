@@ -1,7 +1,7 @@
 ---
 title: "Монохромные дизайны корпорация шанс"
 date: 2026-01-09
-image: шанскорп дизайны1.png
+image: /assets/art/шанскорп дизайны1.png
 description: ""
 art_tags:
   progress: ["скетч"]
@@ -13,3 +13,4 @@ art_tags:
   misc: []
 
 ---
+
