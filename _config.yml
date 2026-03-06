@@ -45,5 +45,5 @@ defaults:
       path: ""
       type: gallery   # и здесь поменяли на gallery
     values:
-      layout: work_new  
+      layout: work_new 
       image_path: 
