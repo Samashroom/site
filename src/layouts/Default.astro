@@ -6,53 +6,57 @@ interface Props {
 
 const { title, description } = Astro.props;
 import Navbar from "../components/Navigation.astro";
-import Head from "../components/head.astro";
 import Footer from "../components/footer.astro";
 import Description from "../components/Desctiption.astro";
 
-import  AstroSeo  from '@northsoon/astro-seo';
+import AstroSeo from "@northsoon/astro-seo";
 ---
+
 <!doctype html>
 <html lang="ru">
   <head>
-    
-
-    <title>{title}</title>
-    <delscription>{description}</description>
-        <meta charset="utf-8" />
+    <title>{title ?? "Самашрум"}</title>
+    <meta name="description" content={description} />
+    <meta charset="utf-8" />
     <link rel="icon" href="/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <AstroSeo
-      title={title}
-      titleTemplate="%s | Самашрум"
-      description={description}
-      canonical="https://samashroom.ru"
-      openGraph={{
-        url: "https://samashroom.ru",
-        title: {title},
-        description: {description},
-        type: "website",
-        images: [{
-          url: "https://mysite.com/og-image.jpg",
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <AstroSeo
+    title={title}
+    titleTemplate="%s | Самашрум"
+    description={description}
+    canonical="https://samashroom.ru"
+    openGraph={{
+      url: "https://samashroom.ru",
+      title: title, // 👈 просто переменная, без фигурных скобок
+      description: description, // 👈 просто переменная
+      type: "website",
+      images: [
+        {
+          url: "https://samashroom.ru/og-image.jpg", // 👈 исправьте URL на свой
           width: 1200,
           height: 630,
-          alt: "Превью сайта"
-        }]
-      }}
-      twitter={{
-        cardType: "summary_large_image", // 'summary' или 'summary_large_image'
-      }}
-    />
-
-  </head>
+          alt: "Превью сайта",
+        },
+      ],
+    }}
+    twitter={{
+      cardType: "summary_large_image",
+    }}
+  />
+</head>
   <body>
     <main>
       <div class="headpannel">
         <div class="headpannel__content">
-          <a href="/"><h1>Самашрум <i class="fa-solid fa-arrow-pointer"></i></h1></a>
-          
+          <a href="/"
+            ><h1>Самашрум <i class="fa-solid fa-arrow-pointer"></i></h1></a
+          >
+
           <Navbar />
         </div>
       </div>
@@ -71,7 +75,7 @@ import  AstroSeo  from '@northsoon/astro-seo';
   body {
     display: flex;
     justify-content: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     line-height: 1.4;
     margin: 0;
     padding: 2rem;
@@ -106,8 +110,8 @@ import  AstroSeo  from '@northsoon/astro-seo';
     margin: 0;
     color: #fff;
   }
-  
-  .headpannel a{
+
+  .headpannel a {
     text-decoration: none;
     color: inherit;
   }
@@ -185,7 +189,6 @@ import  AstroSeo  from '@northsoon/astro-seo';
 
   .container__content {
     padding: 1rem 20px;
-    
   }
 
   .container h2 {
