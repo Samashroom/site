@@ -6,6 +6,9 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
+  base: '',
+  trailingSlash: 'never',
+    site: 'https://samashroom.ru',
   redirects: {
     '/youtube': 'https://www.youtube.com/@Samashroom',
     '/tg': 'https://t.me/samashroomtg',
