@@ -8,7 +8,7 @@ interface Props {
 const { title, description, imgSrc, link } = Astro.props;
 ---
 
-<a href={link} class="picture-button" target="_blank" rel="noopener noreferrer">
+<a href={link} class="picture-button" rel="noopener noreferrer">
   <img src={imgSrc} alt={title} class="picture-button__image" />
   <div class="picture-button__overlay">
     <h3 class="picture-button__title">{title}</h3>
