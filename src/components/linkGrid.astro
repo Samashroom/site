@@ -1,0 +1,59 @@
+---
+import Button from "../components/linkButton.astro";
+---
+
+<div class="container-grid">
+  <div class="socials-grid">
+    <Button
+      title=" Telegram"
+      href="/tg"
+      bgColor="#2754F5"
+      icon="fa-brands fa-telegram"
+    />
+    <Button
+      title="YouTube"
+      href="/youtube"
+      bgColor="#C82909"
+      icon="fa-brands fa-youtube"
+    />
+    <Button
+      title="TikTok"
+      href="/tiktok"
+      bgColor="#0D0A30"
+      icon="fa-brands fa-tiktok"
+    />
+
+    <Button
+      title="Discord Сервер"
+      href="/discord"
+      bgColor="#5865F2"
+      icon="fa-brands fa-discord"
+    />
+    <Button
+      title="Boosty"
+      href="/boosty"
+      bgColor="#FF5500"
+      icon="fa-solid fa-b"
+    />
+    <Button
+      title="Twitch"
+      href="/twitch"
+      bgColor="#6441A5"
+      icon="fa-brands fa-twitch"
+    />
+  </div>
+</div>
+
+<style>
+  .container-grid {
+    width: 100%;
+  }
+  .socials-grid {
+    font-size: 20px;
+    font-family: system-ui, Arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: center;
+  }
+</style>

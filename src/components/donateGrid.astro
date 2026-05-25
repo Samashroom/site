@@ -1,0 +1,42 @@
+---
+import Button from "../components/linkButton.astro";
+---
+
+<div class="container-grid">
+  <div class="socials-grid">
+
+    <Button
+      title="Boosty"
+      href="/boosty"
+      bgColor="#FF5500"
+      icon="fa-solid fa-b"
+    />
+    
+    <Button
+      title="DonationAlerts"
+      href="/donationalerts"
+      bgColor="#FFaa00"
+      icon="fa-solid fa-b"
+    />
+    
+    <Button
+      title="ТГ донат"
+      href="/tribute"
+      bgColor="#6666ff"
+      icon="fa-solid fa-b"
+    />
+</div>
+
+<style>
+  .container-grid {
+    width: 100%;
+  }
+  .socials-grid {
+    font-size: 20px;
+    font-family: system-ui, Arial, sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: center;
+  }
+</style>

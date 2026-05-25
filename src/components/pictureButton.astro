@@ -1,0 +1,87 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  imgSrc?: string;
+  link?: string;
+}
+const { title, description, imgSrc, link } = Astro.props;
+---
+
+<a href={link} class="picture-button" target="_blank" rel="noopener noreferrer">
+  <img src={imgSrc} alt={title} class="picture-button__image" />
+  <div class="picture-button__overlay">
+    <h3 class="picture-button__title">{title}</h3>
+    <p class="picture-button__description">{description}</p>
+  </div>
+</a>
+
+<style>
+    .picture-button__title{
+        margin: 0;
+    }
+    .picture-button__description
+    {
+        margin: 0;
+    }
+  .picture-button {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .picture-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .picture-button__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .picture-button:hover .picture-button__image {
+    transform: scale(1.1);
+  }
+
+  .picture-button__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+  }
+
+@media (max-width: 600px) {
+    .picture-button__overlay {
+        padding: 3px;
+    }
+    .picture-button__title {
+        font-size: 14px;
+    }
+    .picture-button__description {
+        font-size: 12px;
+    }
+  }
+
+  .picture-button:hover .picture-button__overlay {
+    opacity: 1;
+  }
+  .picture-button__title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }

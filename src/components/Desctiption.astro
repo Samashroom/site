@@ -1,0 +1,81 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+<div>
+    {title && <h1 class="name" data-text={title}>{title}</h1>}
+    <div class="description">
+        {description && <p>{description}</p>}
+    </div>
+</div>
+
+<style>
+    div {
+
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+  p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .name {
+    text-transform: uppercase;
+    font-family: Impact, sans-serif;
+    font-size: 130px;
+    margin-top: -8%;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: -20px;
+    letter-spacing: -4px;
+    color: transparent;
+}
+
+.name::before,
+.name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.name::before {
+    z-index: 1;
+    -webkit-text-stroke: 1px #000;
+    color: transparent;
+}
+
+.name::after {
+    z-index: 2;
+    background: linear-gradient(180deg, #ffffff 0%, #ff6600 25%, #fffecf 50%, #e24a4a 51%, hsl(24, 94%, 57%) 60%, #eb772a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-stroke: 0;
+}
+
+@media (max-width: 600px) {
+    .name, .name::before, .name::after {
+      font-size: 60px;
+      margin-top: -10px;
+      letter-spacing: -2px;}
+    }
+
+.description {
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    text-line-height: 1;
+}
+
+</style>

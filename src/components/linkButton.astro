@@ -1,0 +1,114 @@
+---
+// ButtonLink.astro
+export interface Props {
+  title: string;
+  href: string;
+  bgColor: string;
+  icon: string;
+}
+
+const { title, href, bgColor, icon } = Astro.props;
+---
+
+<a
+  href={href}
+  class="button-link"
+  style={`background-color: ${bgColor}; border: 4px outset ${bgColor};`}
+  title={title}
+  target="_blank"
+>
+  <div class = "button-link__icon"><i class={`fa-solid ${icon}`}></i></div>
+  <p>{title}</p>
+</a>
+
+<style>
+  .button-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 10px rgba(27, 53, 61, 0.342);
+  }
+
+  .button-link:hover {
+    background: linear-gradient(135deg, #ff9900 0%, #ff6600 50%, #ff9900 100%);
+    transform: scale(1.02);
+    border: 4px outset #ffcc00;
+    color: #ffffff;
+    opacity: 0.8;
+  }
+
+  .button-link:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow:
+      inset 0 8px 15px rgba(0, 0, 0, 0.4),
+      inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+    border: 4px inset #ffcc00;
+  }
+
+  .button-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 247, 219, 0.342) 0%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.178) 100%
+    );
+    pointer-events: none; /* Чтобы градиент не мешал кликам */
+    z-index: 1;
+    border-radius: inherit; /* Если нужны скруглённые углы */
+  }
+
+  .button-link::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    transition: all 0.8s ease;
+  }
+
+  .button-link:hover::after {
+    left: 150%;
+  }
+
+  .button-link span,
+  .button-link ::slotted(*) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .button-link__icon {
+    margin-right: 20px;
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3), 0 0 10px rgba(0, 0, 0, 0.3);
+}
+</style>

@@ -1,0 +1,34 @@
+---
+import Layout from "../layouts/Default.astro";
+import Button from "../components/linkButton.astro";
+---
+
+<Layout title="Видео" description="Последнее видео">
+  <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+    <iframe
+      width="975"
+      height="548"
+      src="https://www.youtube.com/embed/nTkfdHhUmkc"
+      title="А ПОМНИТЕ НАЗАД НЕЛЬЗЯ?? | Разбор без ретроспективы"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+  <div style="display: flex; justify-content: center; gap: 20px;">
+    
+  Можно посмотреть на:
+    <Button
+      title="YouTube"
+      href="/youtube"
+      bgColor="#C82909"
+      icon="fa-brands fa-youtube"
+    />
+    <Button
+      title="Boosty"
+      href="/boosty"
+      bgColor="#FF5500"
+      icon="fa-solid fa-b"
+    />
+  </div>
+</Layout>

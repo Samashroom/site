@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import RandomAdClient from '../components/rotationCard.tsx';
+
+// Получаем все объявления
+const all = await getCollection('rotation');
+
+// Перемешиваем массив случайным образом
+const shuffled = [...all].sort(() => Math.random() - 0.5);
+
+const adsWithResolvedImages = shuffled.map((ad) => ({
+  title: ad.data.title,
+  description: ad.data.description,
+  link: ad.data.link,
+  image: ad.data.image,
+}));
+---
+
+{shuffled.length > 0 && (
+  <RandomAdClient ads={adsWithResolvedImages} client:load />
+)}

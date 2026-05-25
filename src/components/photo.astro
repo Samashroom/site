@@ -1,0 +1,44 @@
+---
+// HotspotSound.astro
+import image from "../assets/face.png";
+import clownSound from "../assets/clown.mp3";
+const hotspots = [
+  { id: 1, top: '46%', left: '63%', width: '15%', height: '15%', sound: clownSound },
+];
+---
+
+<div style="position: relative; height: 200px; width: 200px; margin: 0;">
+  <img 
+    src={image.src}
+    alt="Interactive"
+    style="height: 200px;"
+  />
+  
+  {hotspots.map(hotspot => (
+    <div
+      class="hotspot"
+      data-sound={hotspot.sound}
+      style={{
+        position: 'absolute',
+        top: hotspot.top,
+        left: hotspot.left,
+        width: hotspot.width,
+        height: hotspot.height,
+        cursor: 'pointer',
+        borderRadius: '50%'
+      }}
+    ></div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll('.hotspot').forEach(el => {
+    const soundUrl = el.dataset.sound;
+    const audio = new Audio(soundUrl);
+    
+    el.addEventListener('click', () => {
+      audio.currentTime = 0;
+      audio.play();
+    });
+  });
+</script>

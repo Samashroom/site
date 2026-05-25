@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Default.astro";
+import LinkGrid from "../components/linkGrid.astro";
+import Dialogue from "../components/dialogue.astro";
+import PictureButton from "../components/pictureButton.astro";
+import music from "../assets/music.jpg";
+import video from "../assets/videos.png";
+import chancecorp from "../assets/chancecorp.png";
+import other from "../assets/other.png";
+import Promo from "../components/Promo.astro";
+---
+
+<Layout title="Главная">
+  <Dialogue />
+
+  <div
+    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 0.5fr)); gap: 20px;"
+  >
+    <PictureButton
+      title="Музыка"
+      description="Авторские музыка и клипы"
+      imgSrc={music.src}
+      link="/music"
+    />
+    <PictureButton
+      title="Видео"
+      description="Видео на самые разные темы"
+      imgSrc={video.src}
+      link="/videos"
+    />
+    <PictureButton
+      title="ChanceCorp"
+      description="ChanceCorp и его сотрудников"
+      imgSrc={chancecorp.src}
+      link="/chancecorp"
+    />
+
+    <PictureButton
+      title="Прочее"
+      description="Маленькие/замороженные проекты"
+      imgSrc={other.src}
+      link="/other"
+    />
+  </div>
+
+<Promo></Promo>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 0.5fr)); gap: 20px;">
+  <a href="/donate">#Поддержать деньгой</a>
+  <a href="/help">#ХОЧУ ПОМОЧЬ!</a>
+  </div>
+  
+  <a href="/socials" style="font-size: 30px; text-align: center;">НАЙТИ МЕНЯ:</a>
+  <LinkGrid />
+</Layout>
+
+<style>
+  a {
+    display: inline-block;
+    margin: 10px 0;
+    color: #0b195a;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  a:hover {
+    scale: calc(1.05);
+    color: #ffa600;
+  }

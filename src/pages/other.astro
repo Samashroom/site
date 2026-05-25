@@ -1,0 +1,189 @@
+---
+import Layout from "../layouts/Default.astro";
+import wells from "../assets/wells.jpg";
+import sgd from "../assets/sgd.jpg";
+---
+
+<Layout
+  title="Прочее"
+  description="Здесь будет всякая всячина, которая не подходит ни под одну из категорий/заморрожена"
+>
+
+  <div class="content-row">
+    <div class="content-row__media">
+      <img src={wells.src} alt="wells" />
+    </div>
+    <div class="content-row__text">
+      <div>
+        <h1>Колодец</h1>
+        <h2>aka игра про невидимку ака проект мечты</h2>
+        <h3>ЗАМОРОЖЕН</h3>
+      </div>
+      <p>
+        История, вдохновлённая книгами и рассказами Герберта Уэллса, фокусирующаяся
+        на темах поиска себя, определения, кто ты есть в прошлом, настоящем и
+        будущем. История разделена на 3 сюжетные линии с разными главными героями и
+        в разных жанрах, но объединённые общим сеттингом и историей. Общий вайб произведения -
+        стимпанк с элементами мистики, научной фантастики и путешествий во времени, с фокусом
+        на психологию персонажей и их взаимоотношения.
+      </p>
+      <p>
+        Главные герои - Джеймс Гриффин, который пытается построить будущее постоянно
+        смотря в прошлое, Анна-Вероника Стенли, которая пытается забыть прошлое, не
+        зная, что делать со своим будущим, и Анджели Хильер, которые просто хотят вернуться
+        домой.
+      </p>
+      <p>
+        Проект на данный момент на паузе, потому что у меня нет достаточных навыков,
+        чтобы рассказать историю именно так, как я хочу. К тому же, проекту нужна
+        переработка с учётом выбранного формата игры, потому что изначально 
+        это должна была быть книга.
+      </p>
+      <p>
+        Главные референсы: "The Glass Scientists", "Deltarune"
+      </p>
+    </div>
+  </div>
+
+  <div class="content-row content-row--reverse">
+    
+    <div class="content-row__text">
+      <div>
+        <h1>С глаз долой</h1>
+        <h2>aka комикс который я делала в 16 лет</h2>
+        <h3>ЗАМОРОЖЕН</h3>
+      </div>
+      <p>
+        Стандартная технофентезя с coming of age историей про тупых подростков делающих
+        тупые штуки, написанная тупым подростком.
+      </p>
+      <p>
+        Однако в комиксе есть потенциал. Когда я его перечитывала, я конечно кринжевала, но
+        какое-то здравое зерно и прикол в этом есть, как минимум персонажи интересные (в моей голове)
+        и тема не избитая: главный герой - жертва буллинга, а его романтический интерес - бывший
+        булли (этого пока нет в комиксе, но это изначально задумывалось так и на это даже есть отсылки).
+        Это довольно интересная динамика, я бы хотела её продолжить.
+      </p>
+      <p>
+        А ещё ФАТИГ ЛАТЬЁ ОФИГЕННЫЙ ПЕРСОНАЖ ДАЙ БОГ ЕМУ ЗДОРОВЬЯ
+    </p>
+      <p>
+        Главные референсы: "Дом Совы", "Гарри Поттер"
+      </p>
+      
+      <p>
+        <a href="https://samashroom.github.io/sgd/" target="_blank" rel="noopener noreferrer">
+          Почитать можно здесь если не боитесь
+        </a>
+      </p>
+    </div>
+    <div class="content-row__media">
+      <img src={sgd.src} alt="sgd" />
+    </div>
+  </div>
+  
+</Layout>
+
+<style>
+  .content-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 36%) minmax(0, 64%);
+    gap: 1.75rem;
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+
+  .content-row--reverse {
+    grid-template-columns: minmax(0, 64%) minmax(220px, 36%);
+  }
+
+  .content-row__media {
+    min-width: 0;
+  }
+
+  .content-row__media img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    border-radius: 18px;
+    display: block;
+  }
+
+  .content-row__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .content-row__text h1,
+  .content-row__text h2,
+  .content-row__text h3 {
+    margin: 0;
+  }
+
+  .content-row__text h1 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    line-height: 1.05;
+  }
+
+  .content-row__text h2 {
+    font-size: 1.05rem;
+    color: #2a2a2a;
+    margin-top: 0.35rem;
+  }
+
+  .content-row__text h3 {
+    color: #8b3f3f;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .content-row__text p {
+    margin: 0;
+    color: #222;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 900px) {
+    .content-row {
+      grid-template-columns: 1fr;
+      position: relative;
+      min-height: 550px;
+      padding: 1.5rem 1.2rem;
+    }
+
+    .content-row__text {
+      order: 1;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(3px);
+      border-radius: 24px;
+      padding: 1.6rem;
+      
+      background: #f0f0f052;
+      box-shadow: 0 30px 50px rgba(9, 23, 32, 0.12);
+    }
+
+    .content-row__media {
+      order: 2;
+      
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .content-row__media img {
+      width: 100%;
+      height: 100%;
+      
+      object-fit: cover;
+      aspect-ratio: auto;
+      opacity: 0.32;
+      filter: saturate(0.7) brightness(0.9) blur(1px);
+    }
+  }
+</style>
