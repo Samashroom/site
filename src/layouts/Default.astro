@@ -33,9 +33,8 @@ import AstroSeo from "@northsoon/astro-seo";
     canonical="https://samashroom.ru"
     openGraph={{
       url: "https://samashroom.ru",
-      title: title, // 👈 просто переменная, без фигурных скобок
-      description: description, // 👈 просто переменная
-      type: "website",
+      title: title,
+      description: description,
       images: [
         {
           url: "https://samashroom.ru/og-image.jpg", // 👈 исправьте URL на свой
@@ -73,6 +72,10 @@ import AstroSeo from "@northsoon/astro-seo";
   </body>
 </html>
 <style>
+  
+html {
+  scroll-behavior: smooth;
+}
   body {
     display: flex;
     justify-content: center;
@@ -98,7 +101,6 @@ import AstroSeo from "@northsoon/astro-seo";
     min-height: 100vh;
     padding: 20px;
   }
-
   main {
     display: flex;
     flex-direction: column;
